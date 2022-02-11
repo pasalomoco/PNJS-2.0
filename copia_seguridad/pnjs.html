@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>A4 landscape</title>
+
+
+  <link rel="stylesheet" href="css/normalize.min.css" >
+  <link rel="stylesheet" href="css/paper.css" >
+  <link rel="stylesheet" href="css/css.css" >
+  <link rel="stylesheet" href="css/bootstrap.css" >
+  <script src="js/jquery.min.js"></script>
+</head>
+
+<body class="A4 landscape">
+
+  <section class="sheet padding-10mm">
+
+    <article id="ficha-PNJ">
+      <div id="inicia-aplicacion"> 
+          <button class="botones display-1" id="iniciar">
+            CREA TU PNJ FAVORITO
+          </button>
+      </div>
+        <div class="container" id="contenido-aplicacion">
+          <div class="row">
+            <div class="col-4">
+                <h1 id="tipoPNJ">
+
+                </h1>
+                <h3 id="caracteristicas">
+                 
+                </h3>
+                <div id="listado-caracteristicas">
+
+                </div>            
+              
+            </div>
+
+            <div class="col-4">
+              <h3 id="habilidades">
+                 
+              </h3>
+              <div id="listado-habilidades">
+
+              </div>  
+              
+            </div>
+
+            <div class="col-4">
+              <h3 id="conocimientos">
+                
+              </h3>
+              <div id="listado-conocimientos"> 
+
+              </div>
+              <h3 id="rasgos-adicionales">
+                
+              </h3>
+              <div id="listado-rasgos"> 
+
+              </div>
+                 
+            </div>
+            
+          </div>
+           
+        </div>
+   
+
+    </article>
+
+  </section>
+
+  <script src="appJS/dado.js"></script>
+  <script src="appJS/functions.js"></script>
+  <script src="appJS/conocimientos.js"></script>
+  <script src="appJS/habilidades.js"></script>
+  <script src="appJS/caracteristicas.js"></script>
+  <script src="appJS/rasgosAdicionales.js"></script>
+  <script src="appJS/pnj.js"></script>
+  
+  <script type="text/javascript">
+    $(document).ready(function(){
+      $("#iniciar").click(function(){
+        var personaje
+        var x = prompt("Introduce una bonificación");
+        var bonus = parseInt(x);
+        personaje = new Personaje(bonus);
+        console.log(personaje)
+        $("#iniciar").hide();
+        $("#caracteristicas").html("Características:");
+        $('#tipoPNJ').html(personaje.tipoPNJ);
+        for (var key in personaje.caracteristicas) {
+          let botonSubir = document.createElement("button");
+          botonSubir.innerText = "+";
+          botonSubir.id = 'button-' + key;
+          botonSubir.setAttribute('id', "subir"+key);
+          botonSubir.addEventListener("click", botonSubirCaracteristica)
+          let botonBajar = document.createElement("button");
+          botonBajar.innerText = "-";
+          botonBajar.id = 'button-' + key;
+          botonBajar.setAttribute('id', "subir"+key);
+          botonBajar.addEventListener("click", botonBajarCaracteristica)
+
+          $('#listado-caracteristicas').append("<br><span style='margin-right:5px' class='h6' id='"+key+"'>"+key+" " +personaje.caracteristicas[key]+"</span><span id='boton"+key+"'></span>");
+          $("#boton" + key).append(botonSubir);
+          $("#boton" + key).append(botonBajar);
+        }
+        $("#habilidades").html("Habilidades:");
+        for (var key in personaje.habilidades.habilidades) {
+          let botonSubir = document.createElement("button");
+          botonSubir.innerText = "+";
+          botonSubir.id = 'button-' + key;
+          botonSubir.setAttribute('id', "subir"+key);
+          botonSubir.addEventListener("click", botonSubirHabilidad)
+          let botonBajar = document.createElement("button");
+          botonBajar.innerText = "-";
+          botonBajar.id = 'button-' + key;
+          botonBajar.setAttribute('id', "subir"+key);
+          botonBajar.addEventListener("click", botonBajarHabilidad)
+          $('#listado-habilidades').append("<br><span style='margin-right:5px' class='h6' id='"+key+"'>"+key+" " +personaje.habilidades.habilidades[key]+"</span><span id='boton"+key+"'></span>");
+          $("#boton" + key).append(botonSubir);
+          $("#boton" + key).append(botonBajar);
+        }
+        $('#conocimientos').append("Conocimientos:");
+        for (var key of Object.keys(personaje.conocimientos)) {
+          let botonSubir = document.createElement("button");
+          botonSubir.innerText = "+";
+          botonSubir.id = 'button-' + key;
+          botonSubir.setAttribute('id', "subir"+key);
+          botonSubir.addEventListener("click", botonSubirConocimiento)
+          let botonBajar = document.createElement("button");
+          botonBajar.innerText = "-";
+          botonBajar.id = 'button-' + key;
+          botonBajar.setAttribute('id', "subir"+key);
+          botonBajar.addEventListener("click", botonBajarConocimiento)
+          $('#listado-conocimientos').append("<br><span style='margin-right:5px' class='h6' id='"+key+"'>"+key+" " +personaje.conocimientos[key]+"</span><span id='boton"+key+"'></span>");   
+          $("#boton" + key).append(botonSubir);
+          $("#boton" + key).append(botonBajar);
+        }
+     
+        $('#rasgos-adicionales').append("Rasgos adicionales:");
+        personaje.rasgosAdicionales.forEach(function(rasgo, index) {
+              let botonSubir = document.createElement("button");
+              botonSubir.innerText = "+";
+              botonSubir.id = 'button-' + Object.keys(rasgo);
+              botonSubir.setAttribute('id', "subir"+Object.keys(rasgo));
+              botonSubir.addEventListener("click", botonSubirRasgos)
+              let botonBajar = document.createElement("button");
+              botonBajar.innerText = "-";
+              botonBajar.id = 'button-' + Object.keys(rasgo);
+              botonBajar.setAttribute('id', "subir"+Object.keys(rasgo));
+              botonBajar.addEventListener("click", botonBajarRasgos)
+              $('#listado-rasgos').append("<br><span style='margin-right:5px' class='h6' id='"+Object.keys(rasgo)+"'>"+Object.keys(rasgo)+" " +Object.values(rasgo)+"</span><span id='boton"+Object.keys(rasgo)+"'></span>");   
+              $("#boton" + Object.keys(rasgo)).append(botonSubir);
+              $("#boton" + Object.keys(rasgo)).append(botonBajar);
+            
+           
+        });
+      
+
+        function botonSubirCaracteristica(e) {
+          var quitarSubir = e.target.id.replace('subir','');
+          var id = document.getElementById(quitarSubir);
+          var valor = document.getElementById(quitarSubir).textContent;
+          var quitarString = valor.replace ( /[^\d.]/g, '' );
+          quitarString = parseInt(quitarString)+1;
+          
+          id.textContent = id.textContent = quitarSubir+" "+quitarString;
+          e.preventDefault(); 
+        }
+
+        function botonBajarCaracteristica(e) {
+          var quitarSubir = e.target.id.replace('subir','');
+          var id = document.getElementById(quitarSubir);
+          var valor = document.getElementById(quitarSubir).textContent;
+          var quitarString = valor.replace ( /[^\d.]/g, '' );
+          quitarString = parseInt(quitarString)-1;
+          id.textContent = id.textContent = quitarSubir+" "+quitarString;
+          e.preventDefault(); 
+        }
+
+        function botonSubirHabilidad(e) {
+          var quitarSubir = e.target.id.replace('subir','');
+          var id = document.getElementById(quitarSubir);
+          var valor = document.getElementById(quitarSubir).textContent;
+          var quitarString = valor.replace ( /[^\d.]/g, '' );
+          quitarString = parseInt(quitarString)+1;
+          
+          id.textContent = id.textContent = quitarSubir+" "+quitarString;
+          e.preventDefault(); 
+        }
+
+        function botonBajarHabilidad(e) {
+          var quitarSubir = e.target.id.replace('subir','');
+          var id = document.getElementById(quitarSubir);
+          var valor = document.getElementById(quitarSubir).textContent;
+          var quitarString = valor.replace ( /[^\d.]/g, '' );
+          quitarString = parseInt(quitarString)-1;
+          id.textContent = id.textContent = quitarSubir+" "+quitarString;
+          e.preventDefault(); 
+        }
+
+        function botonSubirConocimiento(e) {
+          var quitarSubir = e.target.id.replace('subir','');
+          var id = document.getElementById(quitarSubir);
+          var valor = document.getElementById(quitarSubir).textContent;
+          var quitarString = valor.replace ( /[^\d.]/g, '' );
+          quitarString = parseInt(quitarString)+1;
+          
+          id.textContent = id.textContent = quitarSubir+" "+quitarString;
+          e.preventDefault(); 
+        }
+
+        function botonBajarConocimiento(e) {
+          var quitarSubir = e.target.id.replace('subir','');
+          var id = document.getElementById(quitarSubir);
+          var valor = document.getElementById(quitarSubir).textContent;
+          var quitarString = valor.replace ( /[^\d.]/g, '' );
+          quitarString = parseInt(quitarString)-1;
+          id.textContent = id.textContent = quitarSubir+" "+quitarString;
+          e.preventDefault(); 
+        }
+
+        function botonSubirRasgos(e) {
+          var quitarSubir = e.target.id.replace('subir','');
+          var id = document.getElementById(quitarSubir);
+          var valor = document.getElementById(quitarSubir).textContent;
+          var quitarString = valor.replace ( /[^\d.]/g, '' );
+          quitarString = parseInt(quitarString)+1;
+          
+          id.textContent = id.textContent = quitarSubir+" "+quitarString;
+          e.preventDefault(); 
+        }
+
+        function botonBajarRasgos(e) {
+          var quitarSubir = e.target.id.replace('subir','');
+          var id = document.getElementById(quitarSubir);
+          var valor = document.getElementById(quitarSubir).textContent;
+          var quitarString = valor.replace ( /[^\d.]/g, '' );
+          quitarString = parseInt(quitarString)-1;
+          id.textContent = id.textContent = quitarSubir+" "+quitarString;
+          e.preventDefault(); 
+        }
+
+        
+
+        
+        
+        
+      });
+    });
+       
+    jQuery.fn.justtext = function() {
+  
+      return $(this)	.clone()
+          .children()
+          .remove()
+          .end()
+          .text();
+
+    };
+    </script>
+</body>
+
+</html>

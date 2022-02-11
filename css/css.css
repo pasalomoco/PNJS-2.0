@@ -1,0 +1,136 @@
+@font-face {
+    font-family: "Coalition";
+    src: url(fonts/Coalition_v2.ttf) format(contornos);
+}
+@font-face {
+    font-family: "Earth Orbiter";
+    src: url(fonts/earthorbiter.ttf) format(contornos);
+}
+@font-face {
+    font-family: "Montserrat";
+    src: url(fonts/Montserrat-Regular.otf) format(contornos);
+}
+
+#inicia-aplicacion{
+    position: absolute;
+    top: 30%;
+    width: 100%;
+    text-align: center;
+}
+#contenido-aplicacion{
+    z-index: 10;
+}
+.botones{
+    color: white;
+    background-color: blue;
+    border-radius: 25px;
+    padding: 20px;
+}
+.cuadradosVitalidad {
+    display: inline-block;
+    height: 9px;
+    width: 9px;
+    background-color: white;
+    border: 1px solid #000;
+    margin: 1px;
+}
+.botonesSubirBajar{
+    cursor: pointer;
+}
+.botonesApagarAplicacion{
+    padding: 10px;
+    margin: 15px;
+}
+.margin-top-20{
+    margin-top: -20px !important;
+}
+.sidebar {
+    margin: 0;
+    padding: 0;
+    width: 270px;
+    position: fixed;
+    overflow: auto;
+}
+.sidebarRight {   
+    z-index: 1000;
+    position: fixed;
+    right: 250px;
+    width: 0;
+    height: 100%;
+    margin-right: -250px;
+    overflow-y: auto;
+    -webkit-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+    display: none;
+}
+.sidebarLeft {   
+    z-index: 1000;
+    position: fixed;
+    left: 250px;
+    width: 0;
+    height: 100%;
+    margin-left: -250px;
+    overflow-y: auto;
+    -webkit-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+    display: none;
+}
+.col-6{
+    border: 2px solid black !important;
+    border-radius: 5% !important;
+}
+.equipo{
+height: 25px;
+}
+.especial {
+    height: 30px;
+}
+.content-pop {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 600px;
+    height: 240px;
+    text-align: center;
+    background-color: #fcfcfc;
+    border-radius: 25%;
+    box-sizing: border-box;
+    padding: 10px;
+    z-index: 100;
+    display: none;
+    /*to hide popup initially*/
+}
+.danger-pop{
+    border: 10px solid red;
+}
+.close-btn {
+    position: absolute;
+    right: 20px;
+    top: 15px;
+    background-color: black;
+    color: white;
+    border-radius: 50%;
+    padding: 4px;
+}
+.mouse-border{
+    border: 2px solid red;
+}
+#sidebar-modificando-personaje{
+    z-index: 1000;
+    position: absolute;
+    top: 0;
+    left: 15%;
+    width: 200px;
+    height: 170;
+    overflow-y: hidden;
+    padding: 15px;
+}
+#generandoAleatoriedad{
+    margin: 10%;
+}
+
