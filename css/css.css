@@ -124,7 +124,7 @@ height: 25px;
     z-index: 1000;
     position: absolute;
     top: 0;
-    left: 15%;
+    right: 3%;
     width: 200px;
     height: 170;
     overflow-y: hidden;

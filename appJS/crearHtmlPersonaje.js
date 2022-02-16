@@ -1,131 +1,7 @@
-$(document).ready(function(){
-   
-
-  
-   
-
-    $("#sidebar-modificando-personaje").hide();
-
-    $('#finalizarPersonaje').click(function(){
-        let seguro = prompt("¿Estás seguro que quieres terminar de hacer los PNJs? Pulsa s");
-        if( seguro == "s"){
-            $(".sidebar").hide();
-            $(".botones-ocultar").hide();
-        }
-    });
-    $('.close-btn.random').click(function(){
-      $(".content-pop.random").hide();
-    });
-    $('.close-btn.danger').click(function(){
-      $(".content-pop.danger-pop").hide();
-    });
-
-    $('#generarNuevoPNJaleatorio').click(function(){
-      console.log(numeroTotalPersonajes)
-      // var pnj = $("#PNJ8").outerHTML();
-      // $("#generadorDePNJs").append(pnj);
-      
-    });
-
-
-    $('#sacarConocimientoAleatorio').click(function(){
-      $(".content-pop.random").toggle();
-      let  conocimientoRandom = crearConocimientosRandom(20);
-      conocimientoTocado = sacarValoresArrayRecursive(conocimientoRandom);
-      conocimientoTocado = conocimientoTocado.replace(/_|#|-|@|<>/g, " ");
-      $(".card-title.random").html("Conocimiento Random");
-      $("#generandoAleatoriedad").html(conocimientoTocado);
-      
-    });
-
-    $('#sacarRasgoAleatorio').click(function(){
-      $(".content-pop.random").toggle();
-      let rasgoRandom = sacarRasgosAdicionalesRandom();
-      let key = Object.keys(rasgoRandom)[0].replace(/_|#|-|@|<>/g, " ");
-      let valor =Object.values(rasgoRandom);
-      $(".card-title.random").html("Rasgo Random");
-      $("#generandoAleatoriedad").html(key+" "+valor);
-      
-    });
-
-
-    $('#modificarPersonaje').click(function(){
-      $(".content-pop.danger-pop").toggle();
-    });
-
-    $('#agregarCampos').click(function(){     
-      $(".content-pop.danger-pop").hide();
-      $(".sidebarRight").show();
-      $(".sidebarLeft").show();
-      $("#sidebar-modificando-personaje").html(" ");
-      $("#sidebar-modificando-personaje").html("<b>AÑADIENDO CAMPOS</b>");
-      
-      $("#sidebar-modificando-personaje").show();
-      alert("Haz click en el elemento a agregar")
-      window.setTimeout( agregarCamposNuevos, 1000 );
-    });
-
-    $('#eliminarCampos').click(function(){
-      $(".content-pop.danger-pop").hide();
-      $(".sidebarRight").show();
-      $(".sidebarLeft").show();
-      $("#sidebar-modificando-personaje").html(" ");
-      $("#sidebar-modificando-personaje").html("<b>ELIMINANDO CAMPOS</b>");
-      $("#sidebar-modificando-personaje").show();
-      alert("Haz click en el elemento a eliminar")
-      window.setTimeout( eliminarCamposNuevos, 1000 );
-    });
-
-    function agregarCamposNuevos (){
-      $("#generadorDePNJs").mouseover(function(event) {
-        $("#"+event.target.id).addClass("mouse-border");
-        console.log(event)
-      });
-      $("#generadorDePNJs").mouseout(function(event) {
-        $("#"+event.target.id).removeClass("mouse-border");
-        console.log(event)
-      });
-      $("#generadorDePNJs").click(function(event) {
-       
-        var campoAgregado = prompt("Introduce el campo a añadir");
-        let idCampoAgregado = campoAgregado.replace(/ /g,"_").replace(":","_").replace("/","_").replace(".","_");
-        $("#"+event.target.id).append("<span id='"+idCampoAgregado+"'>"+" "+campoAgregado+" "+" "+"</span>");
-      });
-    }
-
-    function eliminarCamposNuevos (){
-      $("#generadorDePNJs").mouseover(function(event) {
-        $("#"+event.target.id).addClass("mouse-border");
-        console.log(event)
-      });
-      $("#generadorDePNJs").mouseout(function(event) {
-        $("#"+event.target.id).removeClass("mouse-border");
-        console.log(event)
-      });
-      $("#generadorDePNJs").click(function(event) {
-       
-        $("#"+event.target.id).html(" ");
-      });
-    }
-
-    $('#finalizarAgregarCampos').click(function(event) {
-      $(".sidebarRight").hide();
-      $(".sidebarLeft").hide();
-      $("#sidebar-modificando-personaje").hide();
-      $("#generadorDePNJs").unbind("click");
-      $("#generadorDePNJs").unbind("mouseover");
-      $("#generadorDePNJs").unbind("mouseout");
-      
-    });
-
-
-    $('.ocultarBotones').click(function(){
-        $(".botones-ocultar").toggle();
-    });
-    $(".contenido-aplicacion").hide()
-    $(".sidebar").hide();
+$(document).ready(function(){ 
     $("#iniciar").click(function(){
 
+        $("#generadorDePNJs").show()  
         $(".contenido-aplicacion").show()
         $("#iniciar").hide();
         $(".sidebar").show();
@@ -197,7 +73,7 @@ $(document).ready(function(){
               if(key == "Fuerza" || key == "Destreza" || key == "Resistencia"){
                 if(personaje.caracteristicas[key] > personaje.baseCuerpo){
                   let nombre =   key.replace(/_|#|-|@|<>/g, " ")
-                  $('#listado-cuerpo'+h).append("<br><span style='margin-right:1px' id='"+key+h+"'>"+nombre+" " +personaje.caracteristicas[key]+"</span><span class='botones-ocultar boton"+key+h+"'></span>");
+                  $('#listado-cuerpo'+h).append("<br><span id='cuerpo"+key+h+"'>"+nombre+"</span><span style='margin-right:1px' id='"+key+h+"'> " +personaje.caracteristicas[key]+"</span><span class='botones-ocultar boton"+key+h+"'></span>");
                   $(".boton" +key+h).append(botonSubir); 
                   $(".boton" +key+h).append(botonBajar);
                 }else{
@@ -206,7 +82,7 @@ $(document).ready(function(){
               }else if (key == "Inteligencia" || key == "Ingenio" || key == "Percepción"){
                 if(personaje.caracteristicas[key] > personaje.baseMente){
                     let nombre =   key.replace(/_|#|-|@|<>/g, " ")
-                  $('#listado-mente'+h).append("<br><span style='margin-right:1px' id='"+key+h+"'>"+nombre+" " +personaje.caracteristicas[key]+"</span><span class='botones-ocultar boton"+key+h+"'></span>");
+                  $('#listado-mente'+h).append("<br><span id='mente"+key+h+"'>"+nombre+"</span><span style='margin-right:1px' id='"+key+h+"'> " +personaje.caracteristicas[key]+"</span><span class='botones-ocultar boton"+key+h+"'></span>");
                   $(".boton" +key+h).append(botonSubir);
                   $(".boton" +key+h).append(botonBajar);
                 }else{
@@ -215,7 +91,7 @@ $(document).ready(function(){
               }else{
                 if(personaje.caracteristicas[key] > personaje.baseEspiritu){
                     let nombre =   key.replace(/_|#|-|@|<>/g, " ")
-                  $('#listado-espiritu'+h).append("<br><span style='margin-right:1px' id='"+key+h+"'>"+nombre+" " +personaje.caracteristicas[key]+"</span><span class='botones-ocultar boton"+key+h+"'></span>");
+                  $('#listado-espiritu'+h).append("<br><span id='espiritu"+key+h+"'>"+nombre+"</span><span style='margin-right:1px' id='"+key+h+"'> " +personaje.caracteristicas[key]+"</span><span class='botones-ocultar boton"+key+h+"'></span>");
                   $(".boton" +key+h).append(botonSubir);
                   $(".boton" +key+h).append(botonBajar);
                 }else{
@@ -233,17 +109,17 @@ $(document).ready(function(){
                 let id = key.replace(/ /g,"_").replace(":","_").replace("/","_").replace(".","_");
                 if(contadorHabilidades >= 0 && contadorHabilidades <= 4){
                     let nombre =   key.replace(/_|#|-|@|<>/g, " ")
-                  $('#listado-habilidades'+h+"1").append("<br><span style='margin-right:1px' id='"+id+h+"'>"+nombre+" " +personaje.habilidades.habilidades[key]+"</span><span class='botones-ocultar boton"+key+h+"'></span>");
+                  $('#listado-habilidades'+h+"1").append("<br><span id='habilidad"+id+h+"'>"+nombre+"</span><span style='margin-right:1px' id='"+id+h+"'> " +personaje.habilidades.habilidades[key]+"</span><span class='botones-ocultar boton"+key+h+"'></span>");
                   $(".boton" +key+h).append(botonSubir);
                   $(".boton" +key+h).append(botonBajar);
                 }else if(contadorHabilidades >= 5 && contadorHabilidades <= 8) {
                     let nombre =   key.replace(/_|#|-|@|<>/g, " ")
-                  $('#listado-habilidades'+h+"2").append("<br><span style='margin-right:1px' id='"+id+h+"'>"+nombre+" " +personaje.habilidades.habilidades[key]+"</span><span class='botones-ocultar boton"+key+h+"'></span>");
+                  $('#listado-habilidades'+h+"2").append("<br><span id='habilidad"+id+h+"'>"+nombre+"</span><span style='margin-right:1px' id='"+id+h+"'> " +personaje.habilidades.habilidades[key]+"</span><span class='botones-ocultar boton"+key+h+"'></span>");
                   $(".boton" +key+h).append(botonSubir);
                   $(".boton" +key+h).append(botonBajar);
                 }else if(contadorHabilidades >= 9 && contadorHabilidades <= 12) {
                     let nombre =   key.replace(/_|#|-|@|<>/g, " ")
-                  $('#listado-habilidades'+h+"3").append("<br><span style='margin-right:1px' id='"+id+h+"'>"+nombre+" " +personaje.habilidades.habilidades[key]+"</span><span class='botones-ocultar boton"+key+h+"'></span>");
+                  $('#listado-habilidades'+h+"3").append("<br><span id='habilidad"+id+h+"'>"+nombre+"</span><span style='margin-right:1px' id='"+id+h+"'> " +personaje.habilidades.habilidades[key]+"</span><span class='botones-ocultar boton"+key+h+"'></span>");
                   $(".boton" +key+h).append(botonSubir);
                   $(".boton" +key+h).append(botonBajar);
                 }
@@ -260,11 +136,11 @@ $(document).ready(function(){
                     let nombre =   key.replace(/_|#|-|@|<>/g, " ")
                     let id = key.replace(/ /g,"_").replace(":","_").replace("/","_").replace(".","_");
                     if(contadorConocimientos > 4){
-                        $('#listado-conocimientos'+h).append("<span style='margin-right:1px' id='"+id+h+"'>"+nombre+" " +personaje.conocimientos[key]+"</span><span class='botones-ocultar boton"+key+h+"'></span><br>");   
+                        $('#listado-conocimientos'+h).append("<span id='conocimiento"+id+h+"'>"+nombre+"</span><span style='margin-right:1px' id='"+id+h+"'> " +personaje.conocimientos[key]+"</span><span class='botones-ocultar boton"+key+h+"'></span><br>");   
                         $(".boton" +key+h).append(botonSubir);
                         $(".boton" +key+h).append(botonBajar);
                     }else{
-                        $('#listado-habilidades'+h+"3").append("<span style='margin-right:1px' id='"+id+h+"'>"+nombre+" " +personaje.conocimientos[key]+"</span><span class='botones-ocultar boton"+key+h+"'></span><br>");   
+                        $('#listado-habilidades'+h+"3").append("<span id='habilidad"+id+h+"'>"+nombre+"</span><span style='margin-right:1px' id='"+id+h+"'> " +personaje.conocimientos[key]+"</span><span class='botones-ocultar boton"+key+h+"'></span><br>");   
                         $(".boton" +key+h).append(botonSubir);
                         $(".boton" +key+h).append(botonBajar);
                     }
@@ -277,7 +153,7 @@ $(document).ready(function(){
                     let botonBajar = crearBotonBajar(h, key)
                     let nombre =   key.replace(/_|#|-|@|<>/g, " ")
                     let id = key.replace(/ /g,"_").replace(":","_").replace("/","_").replace(".","_");
-                    $('#listado-conocimientos'+h).append("<span style='margin-right:1px' id='"+id+h+"'>"+nombre+" " +personaje.conocimientos[key]+"</span><span class='botones-ocultar boton"+key+h+"'></span><br>");   
+                    $('#listado-conocimientos'+h).append("<span id='conocimiento"+id+h+"'>"+nombre+"</span><span style='margin-right:1px' id='"+id+h+"'> " +personaje.conocimientos[key]+"</span><span class='botones-ocultar boton"+key+h+"'></span><br>");   
                     $(".boton" +key+h).append(botonSubir);
                     $(".boton" +key+h).append(botonBajar);
                 }
@@ -290,7 +166,7 @@ $(document).ready(function(){
                   let botonBajar = crearBotonBajar(h, Object.keys(rasgo))
                   let nombre = Object.keys(rasgo)[0].replace(/_|#|-|@|<>/g, " ");
                   let id = Object.keys(rasgo)[0].replace(/ /g,"_").replace(":","_").replace("/","_").replace(".","_");   
-                  $('#listado-rasgos'+h).append("<span style='margin-right:1px' id='"+id+h+"'>"+nombre+" " +Object.values(rasgo)+" "+" "+"</span><span class='botones-ocultar boton"+Object.keys(rasgo)+h+"'></span>");   
+                  $('#listado-rasgos'+h).append("<span id='rasgo"+id+h+"'>"+nombre+"</span><span style='margin-right:1px' id='"+id+h+"'>" +Object.values(rasgo)+" "+" "+"</span><span class='botones-ocultar boton"+Object.keys(rasgo)+h+"'></span>");   
                   $(".boton" +Object.keys(rasgo)+h).append(botonSubir);
                   $(".boton" +Object.keys(rasgo)+h).append(botonBajar);
             });
@@ -329,8 +205,7 @@ $(document).ready(function(){
         var valor = document.getElementById(quitarSubir).textContent;
         var quitarString = valor.replace ( /[^\d.]/g, '' );
         quitarString = parseInt(quitarString)+1;
-     
-        idaSubir.textContent = idaSubir.textContent = withNoDigits+" "+quitarString+" ";
+        idaSubir.textContent = " "+quitarString;
         e.preventDefault(); 
       }
 
@@ -348,21 +223,13 @@ $(document).ready(function(){
             $("#"+e.target.id).remove();  
             $(".boton"+e.target.id).remove(); 
         }else{
-          idaBajar.textContent = idaBajar.textContent = withNoDigits+" "+quitarString+" ";
+          idaBajar.textContent = " "+quitarString;
         }
        
         e.preventDefault(); 
       }
 
-  
-
-    
-   
-
 });
   
-jQuery.fn.outerHTML = function() {
-  return jQuery('<div />').append(this.eq(0).clone()).html();
-};
 
 
