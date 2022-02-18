@@ -1,9 +1,36 @@
 class Personaje {
 
-  constructor (bonus){
+  constructor (bonus, tipo){
    
-    this.bonus = bonus;
-    this.crearTipoPNJ();
+    switch (tipo) {
+      case "random":
+        this.bonus = bonus;
+        this.crearTipoPNJ();
+      break;
+      case "inutil":
+        this.bonus = bonus;
+        this.crearInutil()
+      break;
+      case "pringao":
+        this.bonus = bonus;
+        this.crearPringao()
+      break;
+      case "monton":
+        this.bonus = bonus;
+        this.crearDelmonton()
+      break;
+
+      case "especialista":
+        this.bonus = bonus;
+        this.crearEspecialista()
+      break;
+
+      case "heroe":
+        this.bonus = bonus;
+        this.crearHeroe();
+      break;
+    }
+  
     this.tipoPNJ;
     this.baseEspiritu;
     this.baseCuerpo;
@@ -36,13 +63,13 @@ class Personaje {
     this.Esquivar = this.habilidades.habilidades.Esquivar;
     this.Pelea = this.habilidades.habilidades.Pelea;
     this.Puntería = this.habilidades.habilidades.Puntería;
-    this.Umbral_del_dolor = this.habilidades.habilidades.Umbral_del_dolor;
+    this.Umbral = this.habilidades.habilidades.Umbral;
     this.Lógica = this.habilidades.habilidades.Lógica;
     this.Memoria = this.habilidades.habilidades.Memoria;
     this.Invención = this.habilidades.habilidades.Invención;
     this.Manipular = this.habilidades.habilidades.Manipular;
     this.Sangre_fría = this.habilidades.habilidades.Sangre_fría;
-    this.Concentración = this.habilidades.habilidades.Concentración;
+    this.Concen = this.habilidades.habilidades.Concen;
     this.Observar = this.habilidades.habilidades.Observar;
     this.Empatía = this.habilidades.habilidades.Empatía;
     this.Encanto = this.habilidades.habilidades.Encanto;
@@ -52,84 +79,117 @@ class Personaje {
     this.Lucha = this.habilidades.habilidades.Lucha;
   }
 
-  crearTipoPNJ () {
-    let dado100 = new Dice (100);
-    let dado3 = new Dice (3)
+ 
+  crearInutil(){
+    this.tipoPNJ="Inútil";
+    let dado4 = new Dice (4);
+    let dado6 = new Dice (6);
+    let dado3 = new Dice (3);
+    this.baseEspiritu = 3;
+    this.baseCuerpo = 3;
+    this.baseMente = 3;
+    this.baseHabilidades = 3;
+    this.puntosTotalesCaracteristicas =  [0, 1 , 1, 0, 0]
+    this.puntosConocimientos = dado6.roll() +1
+    this.puntosRagosAdicionales = dado4.roll();
+    this.puntosHabilidades = dado3.roll () +1;
+    this.porcentajeRepeticion = 0;
+  }
+  
+  crearPringao(){
+    this.tipoPNJ="Pringao";
+    let dado4 = new Dice (4);
+    let dado6 = new Dice (6);
+    this.baseEspiritu = 3;
+    this.baseCuerpo = 3;
+    this.baseMente = 3;
+    this.baseHabilidades = 3;
+    this.puntosTotalesCaracteristicas =  [0,2 , 1, 1, 0]
+    this.puntosConocimientos = dado6.roll() +2
+    this.puntosRagosAdicionales = dado4.roll();
+    this.puntosHabilidades = dado4.roll () +2;
+    this.porcentajeRepeticion = 0;
+  }
+
+
+  crearDelmonton(){
+    this.tipoPNJ="Del montón";
+    let dado4 = new Dice (4);
+    let dado6 = new Dice (6);
+    this.baseEspiritu = 3;
+    this.baseCuerpo = 4;
+    this.baseMente = 4;
+    this.baseHabilidades = 4;
+    this.puntosTotalesCaracteristicas =  [0,2 , 2, 1, 0]
+    this.puntosConocimientos = dado6.roll() +3
+    this.puntosRagosAdicionales = dado4.roll();
+    this.puntosHabilidades = dado6.roll () +3;
+    this.porcentajeRepeticion = 50;
+  }
+  crearEspecialista(){
+    this.tipoPNJ="Especialista";
+    this.baseEspiritu = 4;
+    let menteCuerpo;
     let dado4 = new Dice (4);
     let dado6 = new Dice (6);
     let dado8 = new Dice (8);
+    menteCuerpo = prompt("Te ha tocado especialista. Escribe 'm' o 'c' para ser especialista en cuerpo o mente");
+    if(menteCuerpo == "c" || menteCuerpo == "m"){
+      menteCuerpo = menteCuerpo.toLowerCase();
+    }else{
+      menteCuerpo = "c";
+      alert("Te jodes, por tocar los huevos y no introducir lo que te pedía se queda en especialista de... Tendrás que mirarlo por tu cuenta")
+    }
+    if(menteCuerpo == "m"){
+      this.baseCuerpo = 4;
+      this.baseMente = 5;
+    }else if (menteCuerpo == "c"){
+      this.baseCuerpo = 5;
+      this.baseMente = 4;
+    }
+    this.baseHabilidades = 5;
+    this.puntosTotalesCaracteristicas =  [0, 2 , 2, 2,  1]
+    this.puntosConocimientos = dado6.roll() +4
+    this.puntosRagosAdicionales = dado4.roll();
+    this.puntosHabilidades = dado8.roll () +4;
+    this.porcentajeRepeticion = 75;
+  }
+
+
+  crearHeroe(){
+    let dado4 = new Dice (4);
+    let dado6 = new Dice (6);
     let dado10 = new Dice (10);
+    this.tipoPNJ="Héroe";
+    this.baseEspiritu = 4;
+    this.baseCuerpo = 5;
+    this.baseMente = 5;
+    this.baseHabilidades = 5;
+    this.puntosTotalesCaracteristicas =  [0, 3 , 3, 2,  2]
+    this.puntosConocimientos = dado6.roll() +5
+    this.puntosRagosAdicionales = dado4.roll();
+    this.puntosHabilidades = dado10.roll () +5;
+    this.porcentajeRepeticion = 50;
+  }
+
+
+  crearTipoPNJ () {
+    let dado100 = new Dice (100);
     let tirada = dado100.roll();
     tirada = tirada + parseInt(this.bonus);
     if(tirada >= 0 && tirada <= 10){
-      this.tipoPNJ="Inútil";
-      this.baseEspiritu = 3;
-      this.baseCuerpo = 3;
-      this.baseMente = 3;
-      this.baseHabilidades = 3;
-      this.puntosTotalesCaracteristicas =  [0, 1 , 1, 0, 0]
-      this.puntosConocimientos = dado6.roll() +1
-      this.puntosRagosAdicionales = dado4.roll();
-      this.puntosHabilidades = dado3.roll () +1;
-      this.porcentajeRepeticion = 0;
+      this.crearInutil()
     } else if (tirada >= 11 && tirada <= 30){
-      this.tipoPNJ="Pringao";
-      this.baseEspiritu = 3;
-      this.baseCuerpo = 3;
-      this.baseMente = 3;
-      this.baseHabilidades = 3;
-      this.puntosTotalesCaracteristicas =  [0,2 , 1, 1, 0]
-      this.puntosConocimientos = dado6.roll() +2
-      this.puntosRagosAdicionales = dado4.roll();
-      this.puntosHabilidades = dado4.roll () +2;
-      this.porcentajeRepeticion = 0;
+      this.crearPringao()
+    
     }else if (tirada >= 31 && tirada <= 70){
-      this.tipoPNJ="Del montón";
-      this.baseEspiritu = 3;
-      this.baseCuerpo = 4;
-      this.baseMente = 4;
-      this.baseHabilidades = 4;
-      this.puntosTotalesCaracteristicas =  [0,2 , 2, 1, 0]
-      this.puntosConocimientos = dado6.roll() +3
-      this.puntosRagosAdicionales = dado4.roll();
-      this.puntosHabilidades = dado6.roll () +3;
-      this.porcentajeRepeticion = 50;
+      this.crearDelmonton()
+     
     }else if (tirada >= 71 && tirada <= 90){
-      this.tipoPNJ="Especialista";
-      this.baseEspiritu = 4;
-      let menteCuerpo;
-      menteCuerpo = prompt("Te ha tocado especialista. Escribe 'm' o 'c' para ser especialista en cuerpo o mente");
-      if(menteCuerpo == "c" || menteCuerpo == "m"){
-        menteCuerpo = menteCuerpo.toLowerCase();
-      }else{
-        menteCuerpo = "c";
-        alert("Te jodes, por tocar los huevos y no introducir lo que te pedía se queda en especialista de... Tendrás que mirarlo por tu cuenta")
-      }
-      
-      if(menteCuerpo == "m"){
-        this.baseCuerpo = 4;
-        this.baseMente = 5;
-      }else if (menteCuerpo == "c"){
-        this.baseCuerpo = 5;
-        this.baseMente = 4;
-      }
-      this.baseHabilidades = 5;
-      this.puntosTotalesCaracteristicas =  [0,2 , 2, 2,  1]
-      this.puntosConocimientos = dado6.roll() +4
-      this.puntosRagosAdicionales = dado4.roll();
-      this.puntosHabilidades = dado8.roll () +4;
-      this.porcentajeRepeticion = 75;
+      this.crearEspecialista();
+    
     }else if (tirada >= 91 && tirada <= 100000){
-      this.tipoPNJ="Héroe";
-      this.baseEspiritu = 4;
-      this.baseCuerpo = 5;
-      this.baseMente = 5;
-      this.baseHabilidades = 5;
-      this.puntosTotalesCaracteristicas =  [0, 3 , 3, 2,  2]
-      this.puntosConocimientos = dado6.roll() +5
-      this.puntosRagosAdicionales = dado4.roll();
-      this.puntosHabilidades = dado10.roll () +5;
-      this.porcentajeRepeticion = 50;
+     this.crearHeroe()
     }
  
   }
@@ -160,24 +220,24 @@ class Personaje {
   generarHabilidadesPNJ (){
     var habilidades = 
     {habilidades:{
-          Vigor: 3,
-          Esquivar: 3,
-          Pelea: 3,
-          Lucha: 3,
-          Puntería: 3,
-          Umbral_del_dolor: 3, 
-          Lógica: 3, 
-          Memoria: 3, 
-          Invención: 3, 
-          Manipular: 3, 
-          Sangre_fría: 3, 
-          Concentración: 3, 
-          Observar: 3, 
-          Empatía: 3 ,
-          Encanto: 3,
-          Intimidar: 3,
-          Convencer: 3,
-          Acechar: 3,
+          Vigor: this.baseHabilidades,
+          Esquivar: this.baseHabilidades,
+          Pelea: this.baseHabilidades,
+          Lucha: this.baseHabilidades,
+          Puntería: this.baseHabilidades,
+          Umbral: this.baseHabilidades, 
+          Lógica: this.baseHabilidades, 
+          Memoria: this.baseHabilidades, 
+          Invención: this.baseHabilidades, 
+          Manipular: this.baseHabilidades, 
+          Sangre_fría: this.baseHabilidades, 
+          Concen: this.baseHabilidades, 
+          Observar: this.baseHabilidades, 
+          Empatía: this.baseHabilidades ,
+          Encanto: this.baseHabilidades,
+          Intimidar: this.baseHabilidades,
+          Convencer: this.baseHabilidades,
+          Acechar: this.baseHabilidades,
       },
     };
     switch (this.tipoPNJ) {
@@ -216,7 +276,10 @@ class Personaje {
         }
       break;
     }
+
     this.habilidades = habilidades;
+    
+  
 
   }
 

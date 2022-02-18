@@ -47,6 +47,7 @@ function crearEstadisticasHabilidades (habilidades, bonificador){
 function sacarHabilidadRandom (tirada){
   let habilidad = new Array();
   var dadoHabilidad = new Dice (tirada); 
+  
   switch (dadoHabilidad.roll()) {
     case 1: habilidad= "Vigor"; 
     break;
@@ -56,7 +57,7 @@ function sacarHabilidadRandom (tirada){
     break;
     case 4:  habilidad= "Puntería"; 
     break;
-    case 5:  habilidad= "Umbral_del_D"; 
+    case 5:  habilidad= "Umbral"; 
     break;
     case 6:  habilidad= "Lógica"; 
     break;
@@ -66,9 +67,9 @@ function sacarHabilidadRandom (tirada){
     break;
     case 9:  habilidad= "Manipular"; 
     break;
-    case 10:  habilidad= "Sangre_F"; 
+    case 10:  habilidad= "Sangre_fría"; 
     break;
-    case 11:  habilidad= "Concentrac."; 
+    case 11:  habilidad= "Concen"; 
     break;
     case 12:  habilidad= "Observar"; 
     break;
@@ -95,5 +96,6 @@ function sacarHabilidadRandom (tirada){
             }
     break;
 }
+
 return habilidad;
 }

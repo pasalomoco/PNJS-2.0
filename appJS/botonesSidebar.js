@@ -1,15 +1,54 @@
+var body = $("body");
+
+$('#aumentarFuente').click(function(){
+  var sizeFuenteActual = body.css('font-size');
+  var sizeFuenteActualNum = parseInt(sizeFuenteActual, 10);
+  var sizeFuenteNuevo = sizeFuenteActualNum+1;
+  body.css('font-size', sizeFuenteNuevo);
+  return false;
+});
+
+$('#disminuirFuente').click(function(){
+  var sizeFuenteActual = body.css('font-size');
+  var sizeFuenteActualNum = parseInt(sizeFuenteActual, 10);
+  var sizeFuenteNuevo = sizeFuenteActualNum-1;
+  body.css('font-size', sizeFuenteNuevo);
+  return false;
+});
+
+$('#borrarPNJespecifico').click(function(){
+  $(".botones-ocultar").hide();
+  let numero = prompt("Selecciona el número del personaje a borrar. Del 1-8.")
+  if (isNaN(numero) || numero == "" || numero == undefined ) {
+  }else{
+      $("#PNJ"+numero).remove()
+  }
+ 
+});
+
+$('#limpiarPantalla').click(function(){
+  let borrarSeguro = prompt("¿Estás seguro de que quieres borrar todo? s" );
+  if (isNaN(borrarSeguro) && borrarSeguro == "s" ) {
+    $("#generadorDePNJs").html(" ");
+  }
+ 
+});
+
+$('#openNav').click(function(){
+  $(".sidebar").toggle();
+  let content = $("#openNav").html();
+  if(content == "☰ Open Sidebar"){
+    $("#openNav").html("X Close Sidebar");
+  }else{
+    $("#openNav").html("☰ Open Sidebar");
+  }
+
+});
+
+
 $("#sidebar-modificando-personaje").hide();
 
-$('#finalizarPersonaje').click(function(){
-    let seguro = prompt("¿Estás seguro que quieres terminar de hacer los PNJs? Pulsa s");
-    ocultarModificarPersonaje();
-    if( seguro == "s"){
-        $(".sidebar").hide();
-        $(".botones-ocultar").hide();
-        $(".sidebarRight").hide();
-        $(".sidebarLeft").hide();
-    }
-});
+
 $('.close-btn.random').click(function(){
   $(".content-pop.random").hide();
 });
@@ -75,6 +114,8 @@ $('#eliminarCampos').click(function(){
 });
 
 function agregarCamposNuevos (){
+  $("#generadorDePNJs").css('cursor', 'crosshair');
+
   $("#generadorDePNJs").mouseover(function(event) {
     $("#"+event.target.id).addClass("mouse-border");
     console.log(event)
@@ -92,6 +133,8 @@ function agregarCamposNuevos (){
 }
 
 function eliminarCamposNuevos (){
+  $("#generadorDePNJs").css('cursor', 'crosshair');
+
   $("#generadorDePNJs").mouseover(function(event) {
     $("#"+event.target.id).addClass("mouse-border");
     console.log(event)
@@ -102,11 +145,11 @@ function eliminarCamposNuevos (){
   });
   $("#generadorDePNJs").click(function(event) {
    
-    $("#"+event.target.id).html(" ");
+    $("#"+event.target.id).remove();
   });
 }
 
-$('#finalizarAgregarCampos').click(function(event) {
+$('#finalizarAgregarCampos').click(function() {
   ocultarModificarPersonaje();
 });
 
@@ -124,4 +167,20 @@ function ocultarModificarPersonaje (){
   $("#generadorDePNJs").unbind("click");
   $("#generadorDePNJs").unbind("mouseover");
   $("#generadorDePNJs").unbind("mouseout");
+  $("#generadorDePNJs").css('cursor', 'default');
 }
+
+$('#finalizarPersonaje').click(function(){
+  let seguro = prompt("¿Estás seguro que quieres terminar de hacer los PNJs? Pulsa s");
+  ocultarModificarPersonaje();
+  if( seguro == "s"){
+      $("#openNav").hide();
+      $(".sidebar").hide();
+      $(".botones-ocultar").hide();
+      $(".sidebarRight").hide();
+      $(".sidebarLeft").hide();
+      $(".main-menu").hide();
+      $("#scroll-up").hide();
+      $(".numerosPNJs").hide();
+  }
+});

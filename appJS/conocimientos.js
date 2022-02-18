@@ -299,7 +299,7 @@ function sacarConocimientoRandom (tirada){
       case 4: analiticas= "Investigar";  
       break;
       case 5:  
-              analiticas= "Máquina_P"; 
+              analiticas= "Maq._Pen."; 
       break;
       case 6:  
               for (let i = 0; i < 2; i++) {
@@ -314,15 +314,15 @@ function sacarConocimientoRandom (tirada){
     var ciencia = new Array();
     var dadoCiencia = new Dice (tirada); 
     switch (dadoCiencia.roll()) {
-      case 1: ciencia= "C.Química"; 
+      case 1: ciencia= "Química"; 
       break;
-      case 2: ciencia= "C.Social"; 
+      case 2: ciencia= "Social"; 
       break;
-      case 3: ciencia= "C.Física"; 
+      case 3: ciencia= "Física"; 
       break;
-      case 4: ciencia= "C.Biología";  
+      case 4: ciencia= "Biología";  
       break;
-      case 5: ciencia= "C.Terraf";  
+      case 5: ciencia= "Terraform.";  
       break;
       case 6:  
               for (let i = 0; i < 2; i++) {
@@ -337,11 +337,11 @@ function sacarConocimientoRandom (tirada){
     var pilotaje = new Array();
     var dadoPilotaje = new Dice (tirada); 
     switch (dadoPilotaje.roll()) {
-      case 1: pilotaje= "P.Cabalgar"; 
+      case 1: pilotaje= "Cabalgar"; 
       break;
-      case 2: pilotaje= "P.Terrestre"; 
+      case 2: pilotaje= "V.Terrestre"; 
       break;
-      case 3: pilotaje= "P.Navegar"; 
+      case 3: pilotaje= "Navegar"; 
       break;
       case 4: pilotaje= "P.Atmósfera";  
       break;
@@ -366,7 +366,7 @@ function sacarConocimientoRandom (tirada){
       break;
       case 3: fisico= "Nadar"; 
       break;
-      case 4: fisico= "Traje_de_V";  
+      case 4: fisico= "TAC";  
       break;
       case 5:   
             for (let i = 0; i < 2; i++) {
@@ -409,11 +409,11 @@ function sacarConocimientoRandom (tirada){
     var criminal = new Array();
     var dadoCriminal = new Dice (tirada); 
     switch (dadoCriminal.roll()) {
-      case 1: criminal= "Abrir_C"; 
+      case 1: criminal= "Abrir_Cerr."; 
       break;
       case 2: criminal= "Callejeo"; 
       break;
-      case 3: criminal= "Juego_de_M"; 
+      case 3: criminal= "Juego_manos"; 
       break;
       case 4: criminal= "Tortura";  
       break;
@@ -432,24 +432,24 @@ function sacarConocimientoRandom (tirada){
     var maniobra = new Array();
     var dadoManiobra = new Dice (tirada); 
     switch (dadoManiobra.roll()) {
-      case 1: maniobra= "M_C_a_C"; 
+      case 1: maniobra= "A._Marcial"; 
       break;
       case 2: maniobra= "Esgrima"; 
       break;
-      case 3: maniobra= "Distancia"; 
+      case 3: maniobra= "Tirador"; 
       break;
       case 4: 
-            maniobra.push("M_C_a_C");  
+            maniobra.push("A._Marcial");  
             maniobra.push( "Esgrima");  
       break;
       case 5: 
             maniobra.push( "Esgrima"); 
-            maniobra.push("Distancia"); 
+            maniobra.push("Tirador"); 
       break;
       case 6:  
             maniobra.push("Esgrima"); 
-            maniobra.push( "Distancia"); 
-            maniobra.push("M_C_a_C"); 
+            maniobra.push( "Tirador"); 
+            maniobra.push("A._Marcial"); 
       break;
   }
   return maniobra;
@@ -459,13 +459,13 @@ function sacarConocimientoRandom (tirada){
     var combate = new Array();
     var dadoCombate = new Dice (tirada); 
     switch (dadoCombate.roll()) {
-      case 1: combate= "C_C_a_C"; 
+      case 1: combate= "C.aC."; 
       break;
       case 2: combate= "Arco"; 
       break;
       case 3: combate= "Lanzar"; 
       break;
-      case 4: combate= "Armas_de_F";  
+      case 4: combate= "Disp.Polv.";  
       break;
       case 5:  combate = sacarCombate2Random(6);
       break;
@@ -482,11 +482,11 @@ function sacarConocimientoRandom (tirada){
     switch (dadoCombate2.roll()) {
       case 1: combate2= "Energía"; 
       break;
-      case 2: combate2= "Armas_P"; 
+      case 2: combate2= "Artillería"; 
       break;
-      case 3: combate2= "Demolici."; 
+      case 3: combate2= "Demoliciones"; 
       break;
-      case 4: combate2= "Artefacto_C.aC";  
+      case 4: combate2= "Lanzallamas";  
       break;
       case 5: 
             for (let i = 0; i < 2; i++) {
@@ -506,15 +506,15 @@ function sacarConocimientoRandom (tirada){
     var saber = new Array();
     var dadoSaber = new Dice (tirada); 
     switch (dadoSaber.roll()) {
-      case 1: saber= "Local"; 
+      case 1: saber= "Con.Local"; 
       break;
       case 2: saber= "Planetario"; 
       break;
-      case 3: saber= "Sistema"; 
+      case 3: saber= "Con.Sistema"; 
       break;
-      case 4: saber= "Facción";  
+      case 4: saber= "Con.Facción";  
       break;
-      case 5: saber= "Red_de_S"; 
+      case 5: saber= "C.Red_Salto"; 
       break;
       case 6:  
              for (let i = 0; i < 2; i++) {
@@ -558,13 +558,13 @@ function sacarConocimientoRandom (tirada){
     switch (dadoIngenieria.roll()) {
       case 1: ingenieria= "I.Implantes"; 
       break;
-      case 2: ingenieria= "I.Armas"; 
+      case 2: ingenieria= "Ing.Armas"; 
       break;
-      case 3: ingenieria= "I.Naves"; 
+      case 3: ingenieria= "Ing.Naves"; 
       break;
-      case 4: ingenieria= "I.Golems";  
+      case 4: ingenieria= "Ing.Golems";  
       break;
-      case 5: ingenieria= "I.Biotec."; 
+      case 5: ingenieria= "Biotec._"; 
       break;
       case 6:  
              for (let i = 0; i < 2; i++) {

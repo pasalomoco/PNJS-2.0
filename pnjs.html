@@ -7,10 +7,174 @@
   <link rel="stylesheet" href="css/paper.css" >
   <link rel="stylesheet" href="css/css.css" >
   <link rel="stylesheet" href="css/bootstrap.css" >
+  <link rel="stylesheet" href="css/fonts/font-awesome-min.css" >
   <script src="js/jquery.min.js"></script>
 </head>
 
 <body>
+  <div class="contenido-aplicacion">
+    <div id="scroll-up">
+      <a href="#" class="scroll-top" title="Ir arriba">
+        &uarr;
+      </a>
+    </div>
+  
+
+    <nav class="main-menu conenido-aplicacion">
+      <ul>
+          <li>
+            <a  href="#">
+                <span class="fa fa-home fa-2x">F</span>
+                <span  id="aumentarFuente" class="nav-text botonesApagarAplicacion conenido-aplicacion">
+                    + Fuente
+                </span>
+                <span id="disminuirFuente" class="nav-text botonesApagarAplicacion conenido-aplicacion">
+                  - Fuente
+              </span>
+            </a>
+          
+        </li>
+          <li>
+              <a id="finalizarAgregarCampos" href="#">
+                  <span class="fa fa-home fa-2x">F</span>
+                  <span  class="nav-text botonesApagarAplicacion conenido-aplicacion">
+                      Finalizar modificar PNJ
+                  </span>
+              </a>
+            
+          </li>
+          <li class="has-subnav">
+              <a id="modificarPersonaje" href="#">
+                <span class="fa fa-home fa-2x">MO</span>
+                  <span  class="nav-text botonesApagarAplicacion conenido-aplicacion">
+                      Modificar PNJ
+                  </span>
+              </a>
+              
+          </li>
+          <li class="has-subnav">
+              <a id="ocultarBotones" href="#">
+                <span class="fa fa-home fa-2x">OC</span>
+                  <span class="nav-text ocultarBotones botonesApagarAplicacion conenido-aplicacion">
+                      Ocultar botones
+                  </span>
+              </a>
+             
+          </li>
+          <li>
+              <a id="sacarConocimientoAleatorio" href="#">
+                <span class="fa fa-home fa-2x">CA</span>
+                  <span  class="nav-text botonesApagarAplicacion conenido-aplicacion">
+                      Conocimiento aleatorio
+                  </span>
+              </a>
+          </li>
+          <li>
+              <a id="sacarRasgoAleatorio" href="#">
+                <span class="fa fa-home fa-2x">RA</span>
+                  <span  class="nav-text botonesApagarAplicacion conenido-aplicacion">
+                      Rasgo aleatorio
+                  </span>
+              </a>
+          </li>
+          <li>
+             <a id="cargarPnj" href="#">
+              <span class="fa fa-home fa-2x">CPNJ</span>
+                  <span  class="botonesApagarAplicacion conenido-aplicacion nav-text botonesApagarAplicacion conenido-aplicacion">
+                      Cargar PNJ
+                  </span>
+              </a>
+          </li>
+          <li>
+             <a  id="descargarPnj" href="#">
+              <span class="fa fa-home fa-2x">DPNJ</span>
+                  <span  class="nav-text botonesApagarAplicacion conenido-aplicacion">
+                      Descargar PNJ
+                  </span>
+              </a>
+          </li>
+          <li>
+            <a  id="crearInutil" href="#">
+             <span class="fa fa-home fa-2x">CR.I</span>
+                 <span  class="nav-text botonesApagarAplicacion conenido-aplicacion">
+                     Crear Inútil
+                 </span>
+             </a>
+         </li>
+         <li>
+            <a  id="crearPringao" href="#">
+              <span class="fa fa-home fa-2x">CR.P</span>
+                  <span  class="nav-text botonesApagarAplicacion conenido-aplicacion">
+                      Crear Pringao
+                  </span>
+              </a>
+          </li>
+          <li>
+            <a  id="crearDelMonton" href="#">
+              <span class="fa fa-home fa-2x">CR.M</span>
+                  <span  class="nav-text botonesApagarAplicacion conenido-aplicacion">
+                      Crear del montón
+                  </span>
+              </a>
+          </li>
+          <li>
+            <a  id="crearEspecialista" href="#">
+              <span class="fa fa-home fa-2x">CR.E</span>
+                  <span  class="nav-text botonesApagarAplicacion conenido-aplicacion">
+                      Crear especialista
+                  </span>
+              </a>
+          </li>
+          <li>
+            <a  id="crearHeroe" href="#">
+              <span class="fa fa-home fa-2x">CR.H</span>
+                  <span  class="nav-text botonesApagarAplicacion conenido-aplicacion">
+                      Crear héroe
+                  </span>
+              </a>
+          </li>
+          <li>
+            <a  id="crearRandomPnj" href="#">
+              <span class="fa fa-home fa-2x">CR.R</span>
+                  <span  class="nav-text botonesApagarAplicacion conenido-aplicacion">
+                      Crear random
+                  </span>
+              </a>
+          </li>
+          <li>
+            <a  id="borrarPNJespecifico" href="#">
+              <span class="fa fa-home fa-2x">B.P.E</span>
+                  <span  class="nav-text botonesApagarAplicacion conenido-aplicacion">
+                      Borrar personaje
+                  </span>
+              </a>
+          </li>
+          <li>
+            <a  id="limpiarPantalla" href="#">
+              <span class="fa fa-home fa-2x">DELETE</span>
+                  <span  class="nav-text botonesApagarAplicacion conenido-aplicacion">
+                      Borrar toda la pantalla
+                  </span>
+              </a>
+          </li>
+          
+      </ul>
+  
+      <ul class="logout">
+          <li>
+             <a id="finalizarPersonaje" href="#">
+              <span class="fa fa-home fa-2x">END</span>
+                   <span  class="nav-text botonesApagarAplicacion conenido-aplicacion">
+                    Finalizar para imprimir
+                  </span>
+              </a>
+          </li>  
+      </ul>
+  </nav>
+
+  </div>
+  
+
   <div class="sidebarRight display-6 danger-pop">
   </div>
   <div class="sidebarLeft display-6 danger-pop">
@@ -42,36 +206,18 @@
           </button>
         </div>
     </div>
-
+    
    
-  <div class="conenido-aplicacion ocultarPanel sidebar">
-    <div class="container">
-      
-          <button class="conenido-aplicacion botonesApagarAplicacion btn btn-secondary" id="finalizarAgregarCampos" >Finalizar agregar o eliminar campos</button>
-          <button class="contenido-aplicacion botonesApagarAplicacion ocultarBotones btn btn-secondary" >Ocultar botones</button>
-          <button class="conenido-aplicacion botonesApagarAplicacion btn btn-secondary" id="finalizarPersonaje" >Finalizar personaje</button>
-          <button class="conenido-aplicacion botonesApagarAplicacion btn btn-secondary" id="modificarPersonaje" >Modificar Personaje</button>
-          <button class="conenido-aplicacion botonesApagarAplicacion btn btn-secondary" id="sacarConocimientoAleatorio" > Sacar conocimiento aleatorio</button>
-          <button class="conenido-aplicacion botonesApagarAplicacion btn btn-secondary" id="sacarRasgoAleatorio" >Sacar rasgo aleatorio</button>
-          <button class="conenido-aplicacion botonesApagarAplicacion btn btn-secondary" id="cargarPnj" >Cargar PNJ</button>
-          <button class="conenido-aplicacion botonesApagarAplicacion btn btn-secondary" id="descargarPnj" >Descargar PNJ</button>
-       
-
-      </div>
-    </div>
-   
-    <!-- <button class="conenido-aplicacion botonesApagarAplicacion" id="generarNuevoPNJaleatorio" >Generar PNJ aleatorio</button> -->
-  </div>
  
   <div id="inicia-aplicacion"> 
-    
     <button class="botones display-1" id="iniciar">
       CREA TU PNJ FAVORITO
     </button>
   </div>  
+ 
   <page size="A4">
     <section id="contenido-aplicacion" class="contenido-aplicacion container">
-
+     
       <article id="generadorDePNJs"class="row">
 
         
@@ -83,7 +229,8 @@
   
   </page>
 
-  <script src="appJS/plantillaPNJ.js"></script>
+  <script src="appJS/inicioApp.js"></script>
+  <script src="appJS/botonUp.js"></script>
   <script src="appJS/modificarPersonaje.js"></script>
   <script src="appJS/cargarDescargarPNJ.js"></script>
   <script src="appJS/botonesSidebar.js"></script>
@@ -95,6 +242,7 @@
   <script src="appJS/rasgosAdicionales.js"></script>
   <script src="appJS/pnj.js"></script>
   <script src="appJS/crearHtmlPersonaje.js"></script>
+  <script src="appJS/crearPNJespecifico.js"></script>
   <script>
     $(".contenido-aplicacion").hide()
     $(".sidebar").hide();
