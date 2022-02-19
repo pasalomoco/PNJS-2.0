@@ -279,8 +279,6 @@ class Personaje {
 
     this.habilidades = habilidades;
     
-  
-
   }
 
 

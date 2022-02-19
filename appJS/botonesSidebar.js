@@ -91,6 +91,18 @@ $('#modificarPersonaje').click(function(){
   $(".content-pop.danger-pop").toggle();
 });
 
+
+$('#modificarMargen').click(function(){     
+  $(".content-pop.danger-pop").hide();
+  $(".sidebarRight").show();
+  $(".sidebarLeft").show();
+  $("#sidebar-modificando-personaje").html(" ");
+  $("#sidebar-modificando-personaje").html("<b>MODIFICAR MÁRGENES</b>");
+  $("#sidebar-modificando-personaje").show();
+  alert("Haz click en el elemento")
+  window.setTimeout( modificarMargen, 1000 );
+});
+
 $('#agregarCampos').click(function(){     
   $(".content-pop.danger-pop").hide();
   $(".sidebarRight").show();
@@ -112,6 +124,27 @@ $('#eliminarCampos').click(function(){
   alert("Haz click en el elemento a eliminar")
   window.setTimeout( eliminarCamposNuevos, 1000 );
 });
+
+function modificarMargen(){
+  $("#generadorDePNJs").css('cursor', 'crosshair');
+
+  $("#generadorDePNJs").mouseover(function(event) {
+    $("#"+event.target.id).addClass("mouse-border");
+    console.log(event)
+  });
+  $("#generadorDePNJs").mouseout(function(event) {
+    $("#"+event.target.id).removeClass("mouse-border");
+    console.log(event)
+  });
+  $("#generadorDePNJs").click(function(event) {
+   
+    let margenAgregado = prompt("Introduce el margen en px");
+    console.log(margenAgregado)
+    $("#"+event.target.id).css({ 'margin-top' : '' });
+    $("#"+event.target.id).css('margin-top', "20px !important");
+  });
+}
+
 
 function agregarCamposNuevos (){
   $("#generadorDePNJs").css('cursor', 'crosshair');
