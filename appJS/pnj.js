@@ -133,7 +133,7 @@ class Personaje {
     let dado4 = new Dice (4);
     let dado6 = new Dice (6);
     let dado8 = new Dice (8);
-    menteCuerpo = prompt("Te ha tocado especialista. Escribe 'm' o 'c' para ser especialista en cuerpo o mente");
+    menteCuerpo = prompt("Escribe 'm' o 'c' para ser especialista en cuerpo o mente");
     if(menteCuerpo == "c" || menteCuerpo == "m"){
       menteCuerpo = menteCuerpo.toLowerCase();
     }else{

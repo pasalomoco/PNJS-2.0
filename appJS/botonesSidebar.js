@@ -60,8 +60,7 @@ $('#crearPNJs').click(function(){
 
 $('#sacarConocimientoAleatorio').click(function(){
   ocultarModificarPersonaje();
-  $(".content-pop.random").toggle();
-  $(".content-pop.modificarPNJ").hide();
+  $(".content-pop.random").show();
   let  conocimientoRandom = crearConocimientosRandom(20);
   conocimientoTocado = sacarValoresArrayRecursive(conocimientoRandom);
   conocimientoTocado = conocimientoTocado.replace(/_|#|-|@|<>/g, " ");
@@ -72,8 +71,7 @@ $('#sacarConocimientoAleatorio').click(function(){
 
 $('#sacarRasgoAleatorio').click(function(){
   ocultarModificarPersonaje();
-  $(".content-pop.random").toggle();
-  $(".content-pop.modificarPNJ").hide();
+  $(".content-pop.random").show();
   let rasgoRandom = sacarRasgosAdicionalesRandom();
   let key = Object.keys(rasgoRandom)[0].replace(/_|#|-|@|<>/g, " ");
   let valor =Object.values(rasgoRandom);
