@@ -203,10 +203,7 @@ class Personaje {
           var rasgoExiste = rasgosAdicionales.filter(function (rasgo) {
             return rasgo.hasOwnProperty(keyRasgoRandom);
           }).length > 0;
-
           if (rasgoExiste) {
-            console.log(auxRasgo)
-            console.log("Ya existe")
             i++
           } else {
             rasgosAdicionales.push(auxRasgo)
@@ -225,7 +222,7 @@ class Personaje {
           Pelea: this.baseHabilidades,
           Lucha: this.baseHabilidades,
           Puntería: this.baseHabilidades,
-          Umbral: this.baseHabilidades, 
+          Umbral_D: this.baseHabilidades, 
           Lógica: this.baseHabilidades, 
           Memoria: this.baseHabilidades, 
           Invención: this.baseHabilidades, 
@@ -315,14 +312,14 @@ class Personaje {
                 caracteristicas[contraria] > this.baseEspiritu && (caracteristicas[caracteristicaRandom]+caracteristicas[contraria]+i >10) ){
                   j--
               }else{
-                //  console.log("Repartir "+i+" en "+caracteristicaRandom)
+                
                  caracteristicas[caracteristicaRandom] = caracteristicas[caracteristicaRandom]  + i;
                  while( (caracteristicas[caracteristicaRandom] + caracteristicas[contraria]) >10) {
                     caracteristicas[contraria] = caracteristicas[contraria]-1;
                  }   
               }
             }else{
-              // console.log("Repartir "+i+" en "+caracteristicaRandom)
+              
               caracteristicas[caracteristicaRandom] = caracteristicas[caracteristicaRandom]  + i;
             }
         }

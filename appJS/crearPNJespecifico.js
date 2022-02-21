@@ -1,74 +1,53 @@
-function crearHTMLPnjEspecifico (tipo){
+function crearHTMLPnjEspecifico (bonificacion,tipo){
     $(".botones-ocultar").show();
-    let check = true;
-    let posicion = prompt("Selecciona el número del personaje. Del 1-8. No repitas si ya existe el número")
-    if (isNaN(posicion) || posicion == "" || posicion == undefined ) {
-        
-    }else{
-        $('.numerosPNJs').each(function(i, obj) {
-            if (i+1 == posicion){
-                alert("El PNJ ya existe, no puedes crear un PNJ encima de otro.")
-                check = false;
-                return false;
-            }
-        });
-    
-        if(check){
-            posicion = parseInt(posicion);
-            crearPNJ(posicion, 0, tipo)
-            $("#PNJ"+posicion).show()
-        }
+    var posicionAcrear;
+    if($('.numerosPNJs').length == 8){
+        alert("No puedes añadir más personajes")
+        return false;
     }
+    if($('.numerosPNJs').length == 0){
+        crearPNJ(1, 0, tipo)
+        $("#PNJ1").show()
+    } else {
+        for (let i=1; i<=8; i++){
+            if($('#PNJ'+i).length == 0){
+                console.log("Personaje "+i+" No existe")
+                posicionAcrear = i;
+                break;
+            }
+        }
+        console.log("Posicion a crear "+posicionAcrear)
+        crearPNJ( posicionAcrear , bonificacion, tipo)
+        $("#PNJ"+ posicionAcrear ).show()
+    }        
 }
 $("#crearInutil").click(function(){
-    crearHTMLPnjEspecifico("inutil")
+    crearHTMLPnjEspecifico(0,"inutil")
 });
 $("#crearPringao").click(function(){
-    crearHTMLPnjEspecifico("pringao")
+    crearHTMLPnjEspecifico(0,"pringao")
 });
 
 $("#crearDelMonton").click(function(){
-    crearHTMLPnjEspecifico("monton")
+    crearHTMLPnjEspecifico(0,"monton")
 });
 
 $("#crearEspecialista").click(function(){
-    crearHTMLPnjEspecifico("especialista")
+    crearHTMLPnjEspecifico(0,"especialista")
 });
 
 $("#crearHeroe").click(function(){
-    crearHTMLPnjEspecifico("heroe")
+    crearHTMLPnjEspecifico(0,"heroe")
 }); 
 
 $("#crearRandomPnj").click(function(){
-    $(".botones-ocultar").show();
-    let check = true;
-    let posicion = prompt("Selecciona el número del personaje. Del 1-8. No repitas si ya existe el número")
-    if (isNaN(posicion) || posicion == "" || posicion == undefined ) {
+    let bonificacion = prompt("Introduce una bonificación del 1 al 100")
+    if (isNaN(bonificacion) || bonificacion == "" || bonificacion == undefined) { 
+       bonificacion = 0;
     }else{
-        $('.numerosPNJs').each(function(i, obj) {
-            if (i+1 == posicion){
-                alert("El PNJ ya existe, no puedes crear un PNJ encima de otro.")
-                check = false;
-                return false;
-            }
-        });
-    
-        if(check){
-            let bonificacion = prompt("Introduce una bonificación del 1 al 100")
-            if (isNaN(bonificacion) || bonificacion == "" || bonificacion == undefined) { 
-                posicion = parseInt(posicion);
-                crearPNJ(posicion, 0, "random")
-                $("#PNJ"+posicion).show()
-            }else{
-                posicion = parseInt(posicion);
-                crearPNJ(posicion, bonificacion, "random")
-                $("#PNJ"+posicion).show()
-               
-            }
-        }
-        
+        bonificacion = parseInt(bonificacion);
     }
-    
+    crearHTMLPnjEspecifico(bonificacion,"random")
 });
 
 

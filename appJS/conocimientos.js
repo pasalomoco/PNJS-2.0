@@ -10,7 +10,6 @@ function crearEstadisticasConocimientos(tipoPNJ, puntos){
         if(conocimientoTocado in conocimientosTotales){
           sumaTotal = conocimientosTotales[conocimientoTocado] +1;
           if(sumaTotal > 2){
-            console.log("Eres del montón... no puedes tener más de 1 en un conocimiento")
           }else{
             conocimientosTotales[conocimientoTocado] = conocimientosTotales[conocimientoTocado] +1;
             i--
@@ -28,7 +27,6 @@ function crearEstadisticasConocimientos(tipoPNJ, puntos){
         if(conocimientoTocado in conocimientosTotales){
           sumaTotal = conocimientosTotales[conocimientoTocado] +1;
           if(sumaTotal > 2){
-            console.log("Eres del montón... no puedes tener más de 1 en un conocimiento")
           }else{
             conocimientosTotales[conocimientoTocado] = conocimientosTotales[conocimientoTocado] +1;
             i--
@@ -47,7 +45,6 @@ function crearEstadisticasConocimientos(tipoPNJ, puntos){
       if(conocimientoTocado in conocimientosTotales){
         sumaTotal = conocimientosTotales[conocimientoTocado] +1;
         if(sumaTotal > 2){
-          console.log("Eres del montón... no puedes tener más de 2 en un conocimiento")
         }else{
           conocimientosTotales[conocimientoTocado] = conocimientosTotales[conocimientoTocado] +1;
           i--

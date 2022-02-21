@@ -57,7 +57,7 @@ function sacarHabilidadRandom (tirada){
     break;
     case 4:  habilidad= "Puntería"; 
     break;
-    case 5:  habilidad= "Umbral"; 
+    case 5:  habilidad= "Umbral_D"; 
     break;
     case 6:  habilidad= "Lógica"; 
     break;

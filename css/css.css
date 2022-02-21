@@ -59,6 +59,12 @@ body, html{
     margin: 15px;
 }
 
+.margin-top-5{
+    margin-top: -5px !important;
+}
+.margin-top-10{
+    margin-top: -10px !important;
+}
 .margin-top-15{
     margin-top: -15px !important;
 }
@@ -131,20 +137,7 @@ body, html{
     transition: all 0.5s ease;
     display: none;
 }
-.sidebarLeft {   
-    z-index: 1000;
-    position: fixed;
-    left: 250px;
-    width: 0;
-    height: 100%;
-    margin-left: -250px;
-    overflow-y: auto;
-    -webkit-transition: all 0.5s ease;
-    -moz-transition: all 0.5s ease;
-    -o-transition: all 0.5s ease;
-    transition: all 0.5s ease;
-    display: none;
-}
+
 .borderFichasPnjs{
     border: 2px solid black !important;
     border-radius: 5% !important;
