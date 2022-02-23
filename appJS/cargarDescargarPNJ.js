@@ -4,7 +4,12 @@ $("#cargarPnj").click(function() {
       let archivo = prompt("Escribe el nombre del archivo, no hace falta la extensión");
       console.log(archivo)
       if(isNaN(archivo)){
-            $("#generadorDePNJs").load(archivo+".htm");
+            $("#generadorDePNJs").load(archivo+".htm", function() {
+              $(".botonesSubirBajar").on("click", function() {
+                funcionBotonSubir()
+                funcionBotonBajar()
+              });
+            });
         }
 
       }

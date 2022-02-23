@@ -5,9 +5,11 @@ $('.close-btn.random').click(function(){
 });
 $('.close-btn.danger').click(function(){
   $(".content-pop.danger-pop").hide();
+  $("#modificarPersonaje").children("span.nav-text").text("Modificar PNJ")
+  $("#modificarPersonaje").children("span.fa").text("MPNJ")
 });
-$('.close-btn.modificarPNJ').click(function(){
-  $(".content-pop.modificarPNJ").hide();
+$('.close-btn.crearPNJs').click(function(){
+    $(".content-pop.crearPNJs").hide();
 });
 
 $('#aumentarFuente').click(function(){
@@ -28,7 +30,7 @@ $('#disminuirFuente').click(function(){
 
 $('#borrarPNJespecifico').click(function(){
   $(".botones-ocultar").hide();
-  $(".content-pop.modificarPNJ").hide();
+  $(".content-pop.crearPNJs").hide();
   let numero = prompt("Selecciona el número del personaje a borrar. Del 1-8.")
  
   if (isNaN(numero) || numero == "" || numero == undefined ) {
@@ -43,7 +45,7 @@ $('#borrarPNJespecifico').click(function(){
 
 $('#limpiarPantalla').click(function(){
   let borrarSeguro = prompt("¿Estás seguro de que quieres borrar todo? s" );
-  $(".content-pop.modificarPNJ").hide();
+  $(".content-pop.crearPNJs").hide();
   if (isNaN(borrarSeguro) && borrarSeguro == "s" ) {
     $("#generadorDePNJs").html(" ");
   }
@@ -54,7 +56,7 @@ $('#limpiarPantalla').click(function(){
 
 $('#crearPNJs').click(function(){
   ocultarModificarPersonaje();
-  $(".content-pop.modificarPNJ").toggle();
+  $(".content-pop.crearPNJs").toggle();
   
 });
 
@@ -81,27 +83,29 @@ $('#sacarRasgoAleatorio').click(function(){
 });
 
 
+
 $('#modificarPersonaje').click(function(){
   ocultarModificarPersonaje();
   let cambio =  $("#modificarPersonaje").children("span.nav-text").text()
   if(cambio == "Modificar PNJ"){
     $("#modificarPersonaje").children("span.nav-text").text("Finalizar modificar PNJ")
-    $("#modificarPersonaje").children("span.fa").text("FPNJ")
+    $(".botones-ocultar").hide();
+    $(".sidebarModificando").show();
+    $(".content-pop.danger-pop").show();
+   
   }else{
     $("#modificarPersonaje").children("span.nav-text").text("Modificar PNJ")
-    $("#modificarPersonaje").children("span.fa").text("MPNJ")
+    $(".botones-ocultar").hide();
+    $(".sidebarModificando").hide();
+    $(".content-pop.danger-pop").hide();
   }
-  $(".botones-ocultar").hide();
-  $(".sidebarModificando").show();
-  $(".content-pop.danger-pop").toggle();
+  
 });
 
 
 $('#modificarMargen').click(function(){    
   $("body").css("background-color", "red"); 
   $(".content-pop.danger-pop").hide();
-  $(".sidebarRight").show();
-  $(".sidebarLeft").show();
   $("#sidebar-modificando-personaje").html(" ");
   $("#sidebar-modificando-personaje").html("<b>MODIFICAR MÁRGENES</b>");
   $("#sidebar-modificando-personaje").show();
@@ -111,22 +115,18 @@ $('#modificarMargen').click(function(){
 
 $('#agregarCampos').click(function(){    
   $(".content-pop.danger-pop").hide();
-  $(".sidebarRight").show();
-  $(".sidebarLeft").show();
-  $("#sidebar-modificando-personaje").html(" ");
-  $("#sidebar-modificando-personaje").html("<b>AÑADIENDO CAMPOS</b>");
-  $("#sidebar-modificando-personaje").show();
+  // $("#sidebar-modificando-personaje").html(" ");
+  // $("#sidebar-modificando-personaje").html("AÑADIENDO CAMPOS");
+  // $("#sidebar-modificando-personaje").show();
   alert("Haz click en el elemento a agregar")
   window.setTimeout( agregarCamposNuevos, 500 );
 });
 
 $('#eliminarCampos').click(function(){
   $(".content-pop.danger-pop").hide();
-  $(".sidebarRight").show();
-  $(".sidebarLeft").show();
-  $("#sidebar-modificando-personaje").html(" ");
-  $("#sidebar-modificando-personaje").html("<b>ELIMINANDO CAMPOS</b>");
-  $("#sidebar-modificando-personaje").show();
+  // $("#sidebar-modificando-personaje").html(" ");
+  // $("#sidebar-modificando-personaje").html("ELIMINANDO CAMPOS");
+  // $("#sidebar-modificando-personaje").show();
   alert("Haz click en el elemento a eliminar")
   window.setTimeout( eliminarCamposNuevos, 500 );
 });
@@ -154,22 +154,33 @@ function modificarMargen(){
 
 
 function agregarCamposNuevos (){
-  $("body").css("background-color", "red"); 
+  $("body").css("background-color", "green"); 
   $("#generadorDePNJs").css('cursor', 'crosshair');
 
   $("#generadorDePNJs").mouseover(function(event) {
-    $("#"+event.target.id).addClass("mouse-border");
+    let check = false;
+    let clases = $("#"+event.target.id).attr('class').split(/\s+/);
+    $.each(clases, function(index, item) {
+      if (item == 'campoAgregar' ) {
+          check = true;
+      }
+    });
+    if(check){
+      $("#"+event.target.id).addClass("mouse-border-add");
+    }
+   
     console.log(event)
   });
   $("#generadorDePNJs").mouseout(function(event) {
-    $("#"+event.target.id).removeClass("mouse-border");
+    $("#"+event.target.id).removeClass("mouse-border-add");
     console.log(event)
   });
   $("#generadorDePNJs").click(function(event) {
-   
     var campoAgregado = prompt("Introduce el campo a añadir");
     let idCampoAgregado = campoAgregado.replace(/ /g,"_").replace(":","_").replace("/","_").replace(".","_");
-    $("#"+event.target.id).append("<div id='"+idCampoAgregado+"'>"+" "+campoAgregado+" "+" "+"</div>");
+    $("#"+event.target.id).append("<span id='"+idCampoAgregado+"'>"+" "+campoAgregado+" "+" "+"</span>");
+    
+  
   });
 }
 
@@ -178,11 +189,13 @@ function eliminarCamposNuevos (){
   $("#generadorDePNJs").css('cursor', 'crosshair');
 
   $("#generadorDePNJs").mouseover(function(event) {
-    $("#"+event.target.id).addClass("mouse-border");
-    console.log(event)
+    
+      $("#"+event.target.id).addClass("mouse-border-delete");
+     
+  
   });
   $("#generadorDePNJs").mouseout(function(event) {
-    $("#"+event.target.id).removeClass("mouse-border");
+    $("#"+event.target.id).removeClass("mouse-border-delete");
     console.log(event)
   });
   $("#generadorDePNJs").click(function(event) {
@@ -234,7 +247,10 @@ function ocultarModificarPersonaje (){
   $("#generadorDePNJs").unbind("mouseout");
   $("#generadorDePNJs").css('cursor', 'default');
   $(".sidebarModificando").hide();
-  $("body").css("background-color", "#FAFAFA");
+  $("body").css("background-color", "rgb(204,204,204)");
+  $(".content-pop.random").hide();
+  $(".content-pop.crearPNJs").hide();
+  $(".content-pop.danger-pop").hide();
   
 }
 
@@ -242,7 +258,7 @@ $('#finalizarPersonaje').click(function(){
   let seguro = prompt("¿Estás seguro que quieres terminar de hacer los PNJs? Pulsa s");
   ocultarModificarPersonaje();
   if( seguro == "s"){
-      $(".content-pop.modificarPNJ").hide();
+      $(".content-pop.crearPNJs").hide();
       $(".content-pop.random").hide();
       $(".content-pop.danger-pop").hide();
       $("#openNav").hide();
@@ -254,5 +270,6 @@ $('#finalizarPersonaje').click(function(){
       $("#scroll-up").hide();
       $(".numerosPNJs").hide();
       $(".sidebarModificando").hide();
+      $("#pageA4").removeClass("boxShadow");
   }
 });

@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>FICHA PNJS</title>
+  <link rel="stylesheet" href="css/paper.css" >
+  <link rel="stylesheet" href="css/css.css" >
+  <link rel="stylesheet" href="css/bootstrap.css" >
+  <link rel="stylesheet" href="css/bootstrap-icons.css" >
+  <script src="js/jquery.min.js"></script>
+ 
+</head>
+
+<body>
+  <div class="contenido-aplicacion">
+    <div id="scroll-up">
+      <a href="#" class="scroll-top" title="Ir arriba">
+        &uarr;
+      </a>
+    </div>
+
+    <div id="container-nav">
+        <nav class="main-menu conenido-aplicacion">
+          <ul>
+              <li>
+                <a  href="#">
+                    <span class="fa fa-2x"><i class="bi bi-fonts"></i></span>
+                    <span class="nav-text botonesApagarAplicacion conenido-aplicacion">
+                      <span id="aumentarFuente">  <i class="bi bi-plus"></i></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                      <span id="disminuirFuente"> <i class="bi bi-dash"></i></span>
+                    </span>
+                    
+                </a>
+              
+            </li>
+              <li class="has-subnav">
+                  <a id="modificarPersonaje" href="#">
+                    <span class="fa fa-2x"><i class="bi bi-pencil-square"></i></span>
+                    <span class="nav-text botonesApagarAplicacion conenido-aplicacion">Modificar PNJ</span>
+                  </a>
+                  
+              </li>
+              <li class="has-subnav">
+                  <a id="ocultarBotones" href="#">
+                    <span class="fa fa-2x"><i class="bi bi-record"></i></span>
+                      <span class="nav-text ocultarBotones botonesApagarAplicacion conenido-aplicacion">
+                          Ocultar botones
+                      </span>
+                  </a>
+                
+              </li>
+              <li>
+                  <a id="sacarConocimientoAleatorio" href="#">
+                    <span class="fa fa-2x"><i class="bi bi-dice-6"></i></span>
+                      <span  class="nav-text botonesApagarAplicacion conenido-aplicacion">
+                          Conocimiento aleatorio
+                      </span>
+                  </a>
+              </li>
+              <li>
+                  <a id="sacarRasgoAleatorio" href="#">
+                    <span class="fa fa-2x"><i class="bi bi-dice-4"></i></span>
+                      <span  class="nav-text botonesApagarAplicacion conenido-aplicacion">
+                          Rasgo aleatorio
+                      </span>
+                  </a>
+              </li>
+              <li>
+                <a id="cargarPnj" href="#">
+                  <span class="fa fa-2x"><i class="bi bi-upload"></i></span>
+                      <span  class="botonesApagarAplicacion conenido-aplicacion nav-text botonesApagarAplicacion conenido-aplicacion">
+                          Cargar PNJ
+                      </span>
+                  </a>
+              </li>
+              <li>
+                <a  id="descargarPnj" href="#">
+                  <span class="fa fa-2x"><i class="bi bi-download"></i></span>
+                      <span  class="nav-text botonesApagarAplicacion conenido-aplicacion">
+                          Descargar PNJ
+                      </span>
+                  </a>
+              </li>
+              <li>
+                <a  id="crearPNJs" href="#">
+                <span class="fa fa-2x"><i class="bi bi-person-plus"></i></span>
+                    <span  class="nav-text botonesApagarAplicacion conenido-aplicacion">
+                        Crear PNJ
+                    </span>
+                </a>
+            </li>
+              
+              <li>
+                <a  id="borrarPNJespecifico" href="#">
+                  <span class="fa fa-2x"><i class="bi bi-person-dash"></i></span>
+                      <span  class="nav-text botonesApagarAplicacion conenido-aplicacion">
+                          Borrar personaje
+                      </span>
+                  </a>
+              </li>
+              <li>
+                <a  id="limpiarPantalla" href="#">
+                  <span class="fa fa-2x"><i class="bi bi-x-square"></i></span>
+                      <span  class="nav-text botonesApagarAplicacion conenido-aplicacion">
+                          Borrar toda la pantalla
+                      </span>
+                  </a>
+              </li>
+              
+          </ul>
+      
+          <ul class="logout">
+              <li>
+                <a id="finalizarPersonaje" href="#">
+                  <span class="fa fa-2x"><i class="bi bi-door-closed"></i></span>
+                      <span  class="nav-text botonesApagarAplicacion conenido-aplicacion">
+                        Finalizar para imprimir
+                      </span>
+                  </a>
+              </li>  
+          </ul>
+      </nav>
+    </div>
+
+   
+      <div class="cardBackground content-pop crearPNJs shadow-lg p-3 mb-5 rounded">
+        <h1>Crear PNJ</h3>
+          <button class="conenido-aplicacion botonesApagarAplicacion btn btn-primary" class="open" id="crearInutil" >Crear Inútil</button>
+          <button class="conenido-aplicacion botonesApagarAplicacion btn btn-primary" class="open" id="crearPringao" >Crear Pringao</button>
+          <button class="conenido-aplicacion botonesApagarAplicacion btn btn-primary" class="open" id="crearDelMonton" >Crear del Montón</button>
+          <button class="conenido-aplicacion botonesApagarAplicacion btn btn-primary" class="open" id="crearEspecialista" >Crear Especialista</button>
+          <button class="conenido-aplicacion botonesApagarAplicacion btn btn-primary" class="open" id="crearHeroe" >Crear Héroe</button>
+          <button class="conenido-aplicacion botonesApagarAplicacion btn btn-primary" class="open" id="crearRandomPnj" >Crear Random</button>
+          <button type="button" class="close-btn crearPNJs">
+            <span aria-hidden="true">&times;</span>
+          </button>
+      </div>
+    
+
+    
+      <div class="cardBackground content-pop danger-pop shadow-lg p-3 mb-5 rounded">
+        <h1 class="text-danger">¡DANGER! LEER</h3>
+        <h5>
+          <b>RECUERDA QUE NO EXISTE EL CONTROL Z</b>
+        </h5>
+        <button class="conenido-aplicacion botonesApagarAplicacion btn btn-success" class="open" id="agregarCampos" >Agrega un campo</button>
+        <button class="conenido-aplicacion botonesApagarAplicacion btn btn-danger" class="open" id="eliminarCampos" >Eliminar un campo</button>
+        <!-- <button class="conenido-aplicacion botonesApagarAplicacion" class="open" id="modificarMargen" >Modificar margen</button> -->
+        <button type="button" class="close-btn danger">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+   
+
+    
+      <div class="cardBackground content-pop random shadow-lg p-3 mb-5 rounded">
+          <div class="card-body">
+            <h3 class="card-title random"></h3>
+            <h5 id="generandoAleatoriedad">
+            </h5>
+            <button type="button" class="close-btn random">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+      </div>
+    
+  
+
+
+  </div>
+  
+
+  <div class="sidebarRight"></div>
+  
+  <div class="sidebar-modificando-personaje danger-pop" id="sidebar-modificando-personaje">
+    
+  </div> 
+ 
+  <page id="pageA4" class="boxShadow" size="A4">
+    <section id="contenido-aplicacion" class="contenido-aplicacion container">
+     
+      <article id="generadorDePNJs"class="row">
+
+        
+
+      </article>   
+  
+    <!-- Cierra container -->
+    </section>
+  
+  </page>
+  
+  <script src="appJS/botonUp.js"></script>
+  <script src="appJS/modificarPersonaje.js"></script>
+  <script src="appJS/cargarDescargarPNJ.js"></script>
+  <script src="appJS/botonesSidebar.js"></script>
+  <script src="appJS/dado.js"></script>
+  <script src="appJS/functions.js"></script>
+  <script src="appJS/conocimientos.js"></script>
+  <script src="appJS/habilidades.js"></script>
+  <script src="appJS/caracteristicas.js"></script>
+  <script src="appJS/rasgosAdicionales.js"></script>
+  <script src="appJS/pnj.js"></script>
+  <script src="appJS/crearHtmlPersonaje.js"></script>
+  <script src="appJS/crearPNJespecifico.js"></script>
+ 
+</body>
+
+</html>

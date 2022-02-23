@@ -3,102 +3,80 @@ function crearPNJ (h, bonificacion, tipo) {
 "<div id='PNJ"+h+"' class='col-6 borderFichasPnjs 'PNJ"+h+"'>"+
     "<div class='row'>"+
 
-      "<div class='col-5' id='addNombre"+h+"''>"+
-        "<div id='nombre"+h+"''>"+
-          "<span> <b> Nombre:</b> </span>"+
+      "<div class='col-8' id='addNombre"+h+"''>"+
+        "<div class='campoAgregar' id='nombre"+h+"''>"+
+          "<span class=''> <b> Nombre:</b> </span>"+
         "</div>"+
       "</div>"+
-      "<div class='col-3' id='addRaza"+h+"''>"+
-        "<div id='raza"+h+"''>"+
-          "<span>"+
-            "<b>Raza:</b>"+
-          "</span>"+
-        "</div>"+
-      "</div>"+
+
       "<div class='col-4' id='addTipo"+h+"''>"+
-        "<span id='tipoPNJ"+h+"''>"+
-          "<b>Tipo: </b></span>" +
+        "<div class='campoAgregar' id='tipoPNJ"+h+"''>"+
+          "<span class=''> <b> Tipo:</b> </span>"+
+        "</div>"+
       "</div>"+
-     "<div class='col-8' id='addPuesto"+h+"''>"+
-       "<div id='puesto"+h+"''>"+
-          "<span>"+
+
+     "<div class='col-5' id='addPuesto"+h+"''>"+
+       "<div class='campoAgregar' id='puesto"+h+"''>"+
+          "<span class=''>"+
            " <b>Puesto:</b>"+
           "</span>"+
         "</div>"+
      "</div>"+
-     "<div class='col-4'>"+
-        "<div class='cuadradosVitalidad'></div>"+
-        "<div class='cuadradosVitalidad'></div>"+
-        "<div class='cuadradosVitalidad'></div>"+
-        "<div class='cuadradosVitalidad'></div>"+
-        "<div class='cuadradosVitalidad'></div>"+
-        "<div class='cuadradosVitalidad'></div>"+
-        "<div class='cuadradosVitalidad'></div>"+
-        "<div class='cuadradosVitalidad'></div>"+
-        "<div class='cuadradosVitalidad'></div>"+
-        "<div class='cuadradosVitalidad'></div>"+
+
+     "<div class='col-4' id='addRaza"+h+"''>"+
+        "<div class='campoAgregar' id='raza"+h+"''>"+
+          "<span class=''>"+
+            "<b>Raza:</b>"+
+          "</span>"+
+        "</div>"+
+      "</div>"+
+
+     "<div class='col-3'>"+
+        "<div id='cuadradosvitalidad"+h+"'>"+
+          "<div class='cuadradosVitalidad'></div>"+
+          "<div class='cuadradosVitalidad'></div>"+
+          "<div class='cuadradosVitalidad'></div>"+
+          "<div class='cuadradosVitalidad'></div>"+
+          "<div class='cuadradosVitalidad'></div>"+
+        "</div>"+
+      "</div>"+
+
+      "<div class='campoAgregar border-top col-12'>"+
+        "<span id='rasgos-adicionales"+h+"'>"+
+        "</span>"+
+        "<span id='listado-rasgos"+h+"'>"+
+        "</span>"+
       "</div>"+
       
-      "<div class='col-3' id='addCuerpo"+h+"''>"+
-       "<div>"+
-          "<span id='cuerpo"+h+"''>"+
-          "</span>"+
-          "<div id='listado-cuerpo"+h+"' class='margin-top-20'>"+
-          "</div> " +
-        "</div>"+
+      "<div class='campoAgregar border-top col-3' id='listadoCuerpo"+h+"''>"+
+      
       "</div>"+
 
-     "<div class='col-3' id='addMente"+h+"''>"+
-        "<div>"+
-         " <span id='mente"+h+"''>"+
-          "</span>"+
-         "<div id='listado-mente"+h+"' class='margin-top-20'>"+
-          "</div> " +
-        "</div>"+
+      "<div class='campoAgregar border-top col-3' id='listadoMente"+h+"''>"+
+      
       "</div>"+
 
-      "<div class='col-3' id='addEspiritu"+h+"1'>"+
-        "<div>"+
-         "<span id='espiritu"+h+"' >"+
-         "</span>"+
-          "<div id='listado-espiritu"+h+"1' class='margin-top-20'>"+
-         "</div>"+
-        "</div>"+
-     "</div>"+
-
-     "<div class='col-3' id='addEspiritu"+h+"2''>"+
-        "<div>"+
-          "<div id='listado-espiritu"+h+"2' class='margin-top-20'>"+
-         "</div>"+
-        "</div>"+
-     "</div>"+
-
-      "<div class='col-3' id='addHabilidades"+h+"1'>"+
-          "<span id='habilidades"+h+"''></span>"+
-          "<div class='margin-top-17' id='listado-habilidades"+h+"1'></div> "+
-      "</div>"+
-      "<div class='col-3' id='addHabilidades"+h+"2'>"+
-          "<div class='margin-top-17' id='listado-habilidades"+h+"2'></div> "+
-      "</div>"+
-      "<div class='col-3' id='addHabilidades"+h+"3'>"+
-          "<div class='margin-top-17' id='listado-habilidades"+h+"3'></div> "+
+      "<div class='campoAgregar border-top col-3' id='listadoEspiritu"+h+"''>"+
+      
       "</div>"+
 
-      "<div class='col-3' id='addConocimientos"+h+"'>"+
-         "<span id='conocimientos"+h+"'></span>"+
-           "<div id='listado-conocimientos"+h+"'></div>"+
+      "<div class='campoAgregar border-top col-3' id='listadoEspiritu"+h+"2' >"+
+      
       "</div>"+
 
-      "<div class='col-12'>"+
-       "<span id='rasgos-adicionales"+h+"'>"+
-          
-       "</span>"+
-        "<span id='listado-rasgos"+h+"'>"+
+      
 
-        "</span>"+
-     "</div>"+
+      "<div class='campoAgregar border-top col-12' id='listadoHabilidades"+h+"''>"+
+      
+      "</div>"+
 
-      "<div class='col-12'>"+
+      "<div class='campoAgregar border-top col-12' id='listadoConocimientos"+h+"''>"+
+      
+      "</div>"+
+
+    
+
+      "<div class='border-top col-12'>"+
         "<div>"+
           "<div>"+
             "Vitalidad:"+
@@ -107,25 +85,25 @@ function crearPNJ (h, bonificacion, tipo) {
                 "<div class='cuadradosVitalidad'></div>"+
                 "<div class='cuadradosVitalidad'></div>"+
                 "<div class='cuadradosVitalidad'></div>"+
-                "5"+
+                "&nbsp;5&nbsp;"+
                "<div class='cuadradosVitalidad'></div>"+
                "<div class='cuadradosVitalidad'></div>"+
                "<div class='cuadradosVitalidad'></div>"+
                "<div class='cuadradosVitalidad'></div>"+
                "<div class='cuadradosVitalidad'></div>"+
-              "10"+
+              "&nbsp;10&nbsp;"+
               "<div class='cuadradosVitalidad'></div>"+
               "<div class='cuadradosVitalidad'></div>"+
                "<div class='cuadradosVitalidad'></div>"+
                "<div class='cuadradosVitalidad'></div>"+
                "<div class='cuadradosVitalidad'></div>"+
-               "15"+
+               "&nbsp;15&nbsp;"+
                "<div class='cuadradosVitalidad'></div>"+
               "<div class='cuadradosVitalidad'></div>"+
               "<div class='cuadradosVitalidad'></div>"+
               "<div class='cuadradosVitalidad'></div>"+
                "<div class='cuadradosVitalidad'></div>"+
-               "20"+
+               "&nbsp;20&nbsp;"+
                "<div class='cuadradosVitalidad'></div>"+
               "<div class='cuadradosVitalidad'></div>"+
               "<div class='cuadradosVitalidad'></div>"+
@@ -135,23 +113,24 @@ function crearPNJ (h, bonificacion, tipo) {
        "</div>"+
      "</div>"+
 
-      "<div class='col-12' id='addEquipo"+h+"''>"+
-        "<div class='equipo'>"+
-          "<span id='equipo"+h+"''>"+
-            "Equipo:"+
-          "</span>"+
-        "</div>"+
-      "</div>"+
-
-      "<div class='col-11' id='addEspecial"+h+"''>"+
-        "<div class='especial'>"+
-        "<span id='especial"+h+"''>"+
+      "<div class='col-12' id='addEspecial"+h+"''>"+
+        "<div id='especial"+h+"' class='campoAgregar especial'>"+
+        "<span>"+
         "Especial:"+
         "</span>"+
         "</div>"+
       "</div>"+
 
+      "<div class='border-top col-11' id='addEquipo"+h+"''>"+
+        "<div class='campoAgregar equipo' id='equipo"+h+"'>"+
+          "<span>"+
+            "Equipo:"+
+          "</span>"+
+        "</div>"+
+      "</div>"+
+
       "<div class='col-1 numerosPNJs' id='addPNJNumero"+h+"''><span id='PNJnumero"+h+"'>"+h+"º</span></div>"+
+      
 
    "</div>";
 
@@ -165,9 +144,9 @@ function crearPNJ (h, bonificacion, tipo) {
     let contadorMente = 0;
     console.log(personaje)
     $("#tipoPNJ"+h).append(personaje.tipoPNJ);
-    $("#cuerpo"+h).append("<b>Cuerpo:</b> "+personaje.baseCuerpo);
-    $("#mente"+h).append("<b>Mente:</b> "+personaje.baseMente);
-    $("#espiritu"+h).append("<b>Espíritu:</b> "+personaje.baseEspiritu);
+    $("#listadoCuerpo"+h).append("<span><b>Cuerpo:</b> "+personaje.baseCuerpo+" </span> ");
+    $("#listadoMente"+h).append("<span><b>Mente:</b> "+personaje.baseMente+" </span> ");
+    $("#listadoEspiritu"+h).append("<span><b>Espíritu:</b> "+personaje.baseEspiritu+" </span> ");
     for (var key in personaje.caracteristicas) {
         let nombre =   key.replace(/_|#|-|@|<>/g, " ")
         let botonSubir = crearBotonSubir(h, key)
@@ -175,45 +154,38 @@ function crearPNJ (h, bonificacion, tipo) {
       if(key == "Fuerza" || key == "Destreza" || key == "Resistencia"){
         if(personaje.caracteristicas[key] > personaje.baseCuerpo){
           contadorCuerpo++
-          $('#listado-cuerpo'+h).append("<br><span id='elemento"+key+h+"'>"+nombre+"</span><span id='"+key+h+"'> " +personaje.caracteristicas[key]+"</span><span class='botones-ocultar boton"+key+h+"'></span>");
+          $("#listadoCuerpo"+h).append("<div><span class='d' id='elemento"+key+h+"'>"+nombre+"</span><span class='' id='"+key+h+"'> " +personaje.caracteristicas[key]+" </span><span class='botones-ocultar boton"+key+h+"'></span></div>");
           $(".boton" +key+h).append(botonSubir); 
           $(".boton" +key+h).append(botonBajar);
         }
       }else if (key == "Inteligencia" || key == "Ingenio" || key == "Percepción"){
         if(personaje.caracteristicas[key] > personaje.baseMente){
           contadorMente++
-          $('#listado-mente'+h).append("<br><span id='elemento"+key+h+"'>"+nombre+"</span><span id='"+key+h+"'> " +personaje.caracteristicas[key]+"</span><span class='botones-ocultar boton"+key+h+"'></span>");
+          $("#listadoMente"+h).append("<div><span class='d' id='elemento"+key+h+"'>"+nombre+"</span><span class='' id='"+key+h+"'> " +personaje.caracteristicas[key]+"</span><span class='botones-ocultar boton"+key+h+"'></span></div>");
           $(".boton" +key+h).append(botonSubir);
           $(".boton" +key+h).append(botonBajar);
         }
       }else{
         if(personaje.caracteristicas[key] > personaje.baseEspiritu){
             contadorEspiritu++
-            if(contadorEspiritu == 4){
-              $('#listado-espiritu'+h+"2").append("<br><span id='elemento"+key+h+"'>"+nombre+"</span><span id='"+key+h+"'> " +personaje.caracteristicas[key]+"</span><span class='botones-ocultar boton"+key+h+"'></span>");
+            console.log(contadorEspiritu)
+            if(contadorEspiritu <= 2){
+              $("#listadoEspiritu"+h).append("<div><span id='elemento"+key+h+"'>"+nombre+"</span><span class='' id='"+key+h+"'> " +personaje.caracteristicas[key]+"</span><span class='botones-ocultar boton"+key+h+"'></span></div>");
               $(".boton" +key+h).append(botonSubir);
               $(".boton" +key+h).append(botonBajar);
-            }else{
-              $('#listado-espiritu'+h+"1").append("<br><span id='elemento"+key+h+"'>"+nombre+"</span><span id='"+key+h+"'> " +personaje.caracteristicas[key]+"</span><span class='botones-ocultar boton"+key+h+"'></span>");
+            }else {
+              $("#listadoEspiritu"+h+"2").append("<div><span id='elemento"+key+h+"'>"+nombre+"</span><span class='' id='"+key+h+"'> " +personaje.caracteristicas[key]+"</span><span class='botones-ocultar boton"+key+h+"'></span></div>");
               $(".boton" +key+h).append(botonSubir);
               $(".boton" +key+h).append(botonBajar);
             }
+        
         }
       }
 
     }
 
-    // if(contadorMente == 1){
-    //   $("#addHabilidades"+h+"2").addClass("margin-top-15");
-    // }else if (contadorMente == 2){
-    //   $("#addHabilidades"+h+"2").addClass("margin-top-5");
-    // } else if(contadorMente == 0){
-    //   $("#addHabilidades"+h+"2").addClass("margin-top-30");
-    // }
-    // if(contadorCuerpo < 1){
-    //   $("#addHabilidades"+h+"1").addClass("margin-top-15");
-    // }
-    $("#habilidades"+h).html("<b>Habilidades:</b> "+personaje.baseHabilidades);
+
+    $("#listadoHabilidades"+h).append("<div class='d-inline-block'> <b> Habilidades: </b> "+personaje.baseHabilidades+"&nbsp;&nbsp;&nbsp;</div>");
     for (var key in personaje.habilidades.habilidades) {
       if(personaje.habilidades.habilidades[key] > personaje.baseHabilidades){
         contadorHabilidades++;
@@ -222,73 +194,32 @@ function crearPNJ (h, bonificacion, tipo) {
         id = id.split('.').join("p");
         let botonSubir = crearBotonSubir(h, id)
         let botonBajar = crearBotonBajar(h, id)
-        if(contadorCuerpo < 1){
-          if(contadorHabilidades >= 0 && contadorHabilidades <= 7){
-          $('#listado-habilidades'+h+"1").append("<br><span id='elemento"+id+h+"'>"+nombre+ "</span><span id='"+id+h+"'> "+personaje.habilidades.habilidades[key]+"</span><span class='botones-ocultar boton"+id+h+"'></span>");
-          $(".boton" +id+h).append(botonSubir);
-          $(".boton" +id+h).append(botonBajar);
-        }else if(contadorHabilidades >= 8 && contadorHabilidades <= 14) {
-          $('#listado-habilidades'+h+"2").append("<br><span id='elemento"+id+h+"'>"+nombre+ "</span><span id='"+id+h+"'> "+personaje.habilidades.habilidades[key]+"</span><span class='botones-ocultar boton"+id+h+"'></span>");
-          $(".boton" +id+h).append(botonSubir);
-          $(".boton" +id+h).append(botonBajar);
-        }else if(contadorHabilidades >= 15 && contadorHabilidades <= 18) {
-          $('#listado-habilidades'+h+"3").append("<br><span id='v"+id+h+"'>"+nombre+ "</span><span id='"+id+h+"'> "+personaje.habilidades.habilidades[key]+"</span><span class='botones-ocultar boton"+id+h+"'></span>");
-          $(".boton" +id+h).append(botonSubir);
-          $(".boton" +id+h).append(botonBajar);
-        }
-        }else{
-          if(contadorHabilidades >= 0 && contadorHabilidades <= 5){
-          $('#listado-habilidades'+h+"1").append("<br><span id='elemento"+id+h+"'>"+nombre+ "</span><span id='"+id+h+"'> "+personaje.habilidades.habilidades[key]+"</span><span class='botones-ocultar boton"+id+h+"'></span>");
-          $(".boton" +id+h).append(botonSubir);
-          $(".boton" +id+h).append(botonBajar);
-        }else if(contadorHabilidades >= 6 && contadorHabilidades <= 12) {
-          $('#listado-habilidades'+h+"2").append("<br><span id='elemento"+id+h+"'>"+nombre+ "</span><span id='"+id+h+"'> "+personaje.habilidades.habilidades[key]+"</span><span class='botones-ocultar boton"+id+h+"'></span>");
-          $(".boton" +id+h).append(botonSubir);
-          $(".boton" +id+h).append(botonBajar);
-        }else if(contadorHabilidades >= 13 && contadorHabilidades <= 18) {
-          $('#listado-habilidades'+h+"3").append("<br><span id='elemento"+id+h+"'>"+nombre+ "</span><span id='"+id+h+"'> "+personaje.habilidades.habilidades[key]+"</span><span class='botones-ocultar boton"+id+h+"'></span>");
-          $(".boton" +id+h).append(botonSubir);
-          $(".boton" +id+h).append(botonBajar);
-        }
-        }
-        
-      
+        $('#listadoHabilidades'+h).append("<div class='d-inline-block'><span id='elemento"+id+h+"'> "+nombre+" </span><span id='"+id+h+"'> "+personaje.habilidades.habilidades[key]+"</span> <span class='botones-ocultar boton"+id+h+"'></span>&nbsp;&nbsp;</div>");
+        $(".boton" +id+h).append(botonSubir);
+        $(".boton" +id+h).append(botonBajar);
       }
 
     }
-    $("#conocimientos"+h).append("<span id='conocimientosAgregar"+h+"'><b>Conocimientos:</b></span><br>");
+    $("#listadoConocimientos"+h).append("<div class='d-inline-block'> <b>Conocimientos:</b> &nbsp;&nbsp;&nbsp;</div>");
     for (var key of Object.keys(personaje.conocimientos)) {
       let nombre =   key.replace(/_|#|-|@|<>/g, " ")
       let id = key.replace(/ /g,"_").replace(":","_").replace("/","_").replace("/\./g","p");  
       id = id.split('.').join("p");
       let botonSubir = crearBotonSubir(h, id)
       let botonBajar = crearBotonBajar(h, id)
-      $('#listado-conocimientos'+h).append("<span id='elemento"+id+h+"'>"+nombre+"</span><span id='"+id+h+"'> " +personaje.conocimientos[key]+"</span><span class='botones-ocultar boton"+id+h+"'></span><br>");   
+      $('#listadoConocimientos'+h).append("<div class='d-inline-block'><span id='elemento"+id+h+"'> "+nombre+"</span><span id='"+id+h+"'> " +personaje.conocimientos[key]+"</span> <span class='botones-ocultar boton"+id+h+"'></span>&nbsp;&nbsp;</div>");   
       $(".boton" +id+h).append(botonSubir);
       $(".boton" +id+h).append(botonBajar);
      }  
 
-    if(contadorEspiritu == 4){
-      $("#addEspiritu"+h+"2").html("");
-      $("#addConocimientos"+h).addClass("margin-top-30");
-    }else{
-      if(personaje.tipoPNJ == "Inútil" || personaje.tipoPNJ == "Pringao"){
-        $("#addEspiritu"+h+"2").html("");
-        $("#addConocimientos"+h).addClass("margin-top-40");
-      }else{
-        $("#addEspiritu"+h+"2").html("");
-        $("#addConocimientos"+h).addClass("margin-top-50");
-      }
- 
-    }
-
-    $('#rasgos-adicionales'+h).append("Rasgos: ");
+  
+    $('#rasgos-adicionales'+h).append("<b>Rasgos: </b>");
     personaje.rasgosAdicionales.forEach(function(rasgo, index) {
           let botonSubir = crearBotonSubir(h, Object.keys(rasgo))
           let botonBajar = crearBotonBajar(h, Object.keys(rasgo))
           let nombre = Object.keys(rasgo)[0].replace(/_|#|-|@|<>/g, " ");
           let id = Object.keys(rasgo)[0].replace(/ /g,"_").replace(":","_").replace("/","_").replace("/\./g","p");   
-          $('#listado-rasgos'+h).append("<span id='elemento"+id+h+"'>"+nombre+" "+" "+"</span><span id='"+id+h+"'>" +Object.values(rasgo)+" "+" "+"</span><span class='botones-ocultar boton"+id+h+"'></span>");   
+          $('#listado-rasgos'+h).append("<div class='d-inline-block'><span id='elemento"+id+h+"'> "+nombre+"</span>&nbsp;<span id='"+id+h+"'>" +Object.values(rasgo)+"</span> <span class='botones-ocultar boton"+id+h+"'></span>&nbsp;&nbsp;&nbsp;</div>");   
           $(".boton" +Object.keys(rasgo)+h).append(botonSubir);
           $(".boton" +Object.keys(rasgo)+h).append(botonBajar);
     });
@@ -296,15 +227,16 @@ function crearPNJ (h, bonificacion, tipo) {
 
 }
 
-function funcionContadorEspiritu (personaje){
-  let contador;
-  for (var key in personaje.caracteristicas) {
-    if(personaje.caracteristicas[key] > personaje.baseEspiritu){
-        contador++;
-    }
-  }
-  return contador;
-}
+// $("<a/>", {
+//   href: '#',
+//    name: 'link_html_edit',
+//    id: 'link_html_edit',
+//    html: 'input HTML text',
+//  click: function(){
+//     test();
+//  }
+// }).appendTo("#generadorDePNJs");
+
 
 function crearBotonSubir (contadorPersonajesCreados, id){
   let botonSubir = document.createElement("span");
@@ -328,6 +260,8 @@ function crearBotonBajar (contadorPersonajesCreados, key){
 
 
 function funcionBotonSubir(e) {
+  console.log(this);
+  console.log(e);
   let quitarSubir = e.target.id.replace('subir','');
   let valor = parseInt($("#"+quitarSubir).text()) +1;
   $("#"+quitarSubir).html(" " +valor) 
@@ -349,4 +283,6 @@ function funcionBotonBajar(e) {
  
   e.preventDefault();
 }
+
+
 

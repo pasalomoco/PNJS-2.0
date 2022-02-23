@@ -57,7 +57,7 @@ function sacarHabilidadRandom (tirada){
     break;
     case 4:  habilidad= "Puntería"; 
     break;
-    case 5:  habilidad= "Umbral_D"; 
+    case 5:  habilidad= "Umbral_del_dolor"; 
     break;
     case 6:  habilidad= "Lógica"; 
     break;
@@ -69,7 +69,7 @@ function sacarHabilidadRandom (tirada){
     break;
     case 10:  habilidad= "Sangre_fría"; 
     break;
-    case 11:  habilidad= "Concen"; 
+    case 11:  habilidad= "Concentración"; 
     break;
     case 12:  habilidad= "Observar"; 
     break;
